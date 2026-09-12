@@ -28,30 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategory));
             pnlHeaders = new Panel();
+            btnCancel = new Button();
+            btnSave = new Button();
+            lblCatagoryName = new Label();
+            txtDescription = new RichTextBox();
+            lblHSNCode = new Label();
+            txtHSNCode = new TextBox();
+            label7 = new Label();
+            txtCategoryName = new TextBox();
+            label3 = new Label();
             pnlGrid = new Panel();
             dgvCategories = new DataGridView();
             SrNo = new DataGridViewTextBoxColumn();
-            btnSave = new Button();
-            txtDescription = new RichTextBox();
-            txtHSNCode = new TextBox();
-            txtCategoryName = new TextBox();
-            label3 = new Label();
-            label2 = new Label();
-            label7 = new Label();
-            lblHSNCode = new Label();
-            lblCatagoryName = new Label();
+            validationerrors = new ErrorProvider(components);
             pnlHeaders.SuspendLayout();
             pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategories).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)validationerrors).BeginInit();
             SuspendLayout();
             // 
             // pnlHeaders
             // 
             pnlHeaders.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pnlHeaders.Controls.Add(btnCancel);
             pnlHeaders.Controls.Add(btnSave);
             pnlHeaders.Controls.Add(lblCatagoryName);
             pnlHeaders.Controls.Add(txtDescription);
@@ -59,63 +64,27 @@
             pnlHeaders.Controls.Add(txtHSNCode);
             pnlHeaders.Controls.Add(label7);
             pnlHeaders.Controls.Add(txtCategoryName);
-            pnlHeaders.Controls.Add(label2);
             pnlHeaders.Controls.Add(label3);
             pnlHeaders.Location = new Point(12, 12);
             pnlHeaders.Name = "pnlHeaders";
             pnlHeaders.Size = new Size(546, 163);
             pnlHeaders.TabIndex = 0;
             // 
-            // pnlGrid
+            // btnCancel
             // 
-            pnlGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnlGrid.BorderStyle = BorderStyle.FixedSingle;
-            pnlGrid.Controls.Add(dgvCategories);
-            pnlGrid.Location = new Point(12, 192);
-            pnlGrid.Name = "pnlGrid";
-            pnlGrid.Size = new Size(546, 175);
-            pnlGrid.TabIndex = 1;
-            // 
-            // dgvCategories
-            // 
-            dgvCategories.AllowUserToAddRows = false;
-            dgvCategories.AllowUserToResizeColumns = false;
-            dgvCategories.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = Color.Azure;
-            dgvCategories.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgvCategories.BackgroundColor = Color.White;
-            dgvCategories.BorderStyle = BorderStyle.None;
-            dgvCategories.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.SteelBlue;
-            dataGridViewCellStyle5.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dgvCategories.ColumnHeadersHeight = 35;
-            dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvCategories.Columns.AddRange(new DataGridViewColumn[] { SrNo });
-            dgvCategories.Dock = DockStyle.Fill;
-            dgvCategories.EditMode = DataGridViewEditMode.EditOnEnter;
-            dgvCategories.EnableHeadersVisualStyles = false;
-            dgvCategories.GridColor = Color.LightSteelBlue;
-            dgvCategories.Location = new Point(0, 0);
-            dgvCategories.Name = "dgvCategories";
-            dgvCategories.ReadOnly = true;
-            dgvCategories.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = Color.LightSkyBlue;
-            dgvCategories.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            dgvCategories.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvCategories.Size = new Size(544, 173);
-            dgvCategories.TabIndex = 4;
-            // 
-            // SrNo
-            // 
-            SrNo.HeaderText = "Sr No.";
-            SrNo.Name = "SrNo";
-            SrNo.ReadOnly = true;
+            btnCancel.Anchor = AnchorStyles.Right;
+            btnCancel.BackColor = Color.WhiteSmoke;
+            btnCancel.ForeColor = SystemColors.ActiveCaptionText;
+            btnCancel.Image = Properties.Resources.Exit;
+            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancel.Location = new Point(455, 123);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(81, 30);
+            btnCancel.TabIndex = 75;
+            btnCancel.Text = "Cancel";
+            btnCancel.TextAlign = ContentAlignment.MiddleRight;
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // btnSave
             // 
@@ -124,13 +93,24 @@
             btnSave.ForeColor = SystemColors.ActiveCaptionText;
             btnSave.Image = Properties.Resources.Save_Update;
             btnSave.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSave.Location = new Point(177, 122);
+            btnSave.Location = new Point(312, 122);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(137, 32);
             btnSave.TabIndex = 74;
             btnSave.Text = "Save && Update";
             btnSave.TextAlign = ContentAlignment.MiddleRight;
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
+            // 
+            // lblCatagoryName
+            // 
+            lblCatagoryName.AutoSize = true;
+            lblCatagoryName.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCatagoryName.Location = new Point(12, 10);
+            lblCatagoryName.Name = "lblCatagoryName";
+            lblCatagoryName.Size = new Size(117, 19);
+            lblCatagoryName.TabIndex = 66;
+            lblCatagoryName.Text = "Category Name :";
             // 
             // txtDescription
             // 
@@ -142,6 +122,16 @@
             txtDescription.TabIndex = 73;
             txtDescription.Text = "";
             // 
+            // lblHSNCode
+            // 
+            lblHSNCode.AutoSize = true;
+            lblHSNCode.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHSNCode.Location = new Point(12, 52);
+            lblHSNCode.Name = "lblHSNCode";
+            lblHSNCode.Size = new Size(81, 19);
+            lblHSNCode.TabIndex = 67;
+            lblHSNCode.Text = "HSN Code :";
+            // 
             // txtHSNCode
             // 
             txtHSNCode.Font = new Font("Calibri", 12F);
@@ -149,6 +139,17 @@
             txtHSNCode.Name = "txtHSNCode";
             txtHSNCode.Size = new Size(160, 27);
             txtHSNCode.TabIndex = 72;
+            txtHSNCode.KeyPress += Common_KeyPress;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = Color.Red;
+            label7.Location = new Point(136, 11);
+            label7.Name = "label7";
+            label7.Size = new Size(15, 18);
+            label7.TabIndex = 68;
+            label7.Text = "*";
             // 
             // txtCategoryName
             // 
@@ -168,45 +169,62 @@
             label3.TabIndex = 70;
             label3.Text = "Description (optional) :";
             // 
-            // label2
+            // pnlGrid
             // 
-            label2.AutoSize = true;
-            label2.ForeColor = Color.Red;
-            label2.Location = new Point(99, 53);
-            label2.Name = "label2";
-            label2.Size = new Size(15, 18);
-            label2.TabIndex = 69;
-            label2.Text = "*";
+            pnlGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlGrid.BorderStyle = BorderStyle.FixedSingle;
+            pnlGrid.Controls.Add(dgvCategories);
+            pnlGrid.Location = new Point(12, 192);
+            pnlGrid.Name = "pnlGrid";
+            pnlGrid.Size = new Size(546, 175);
+            pnlGrid.TabIndex = 1;
             // 
-            // label7
+            // dgvCategories
             // 
-            label7.AutoSize = true;
-            label7.ForeColor = Color.Red;
-            label7.Location = new Point(136, 11);
-            label7.Name = "label7";
-            label7.Size = new Size(15, 18);
-            label7.TabIndex = 68;
-            label7.Text = "*";
+            dgvCategories.AllowUserToAddRows = false;
+            dgvCategories.AllowUserToResizeColumns = false;
+            dgvCategories.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.Azure;
+            dgvCategories.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvCategories.BackgroundColor = Color.White;
+            dgvCategories.BorderStyle = BorderStyle.None;
+            dgvCategories.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvCategories.ColumnHeadersHeight = 35;
+            dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvCategories.Columns.AddRange(new DataGridViewColumn[] { SrNo });
+            dgvCategories.Dock = DockStyle.Fill;
+            dgvCategories.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgvCategories.EnableHeadersVisualStyles = false;
+            dgvCategories.GridColor = Color.LightSteelBlue;
+            dgvCategories.Location = new Point(0, 0);
+            dgvCategories.Name = "dgvCategories";
+            dgvCategories.ReadOnly = true;
+            dgvCategories.RowHeadersVisible = false;
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightSkyBlue;
+            dgvCategories.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dgvCategories.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvCategories.Size = new Size(544, 173);
+            dgvCategories.TabIndex = 4;
             // 
-            // lblHSNCode
+            // SrNo
             // 
-            lblHSNCode.AutoSize = true;
-            lblHSNCode.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblHSNCode.Location = new Point(12, 52);
-            lblHSNCode.Name = "lblHSNCode";
-            lblHSNCode.Size = new Size(81, 19);
-            lblHSNCode.TabIndex = 67;
-            lblHSNCode.Text = "HSN Code :";
+            SrNo.HeaderText = "Sr No.";
+            SrNo.Name = "SrNo";
+            SrNo.ReadOnly = true;
             // 
-            // lblCatagoryName
+            // validationerrors
             // 
-            lblCatagoryName.AutoSize = true;
-            lblCatagoryName.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCatagoryName.Location = new Point(12, 10);
-            lblCatagoryName.Name = "lblCatagoryName";
-            lblCatagoryName.Size = new Size(117, 19);
-            lblCatagoryName.TabIndex = 66;
-            lblCatagoryName.Text = "Category Name :";
+            validationerrors.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            validationerrors.ContainerControl = this;
+            validationerrors.Icon = (Icon)resources.GetObject("validationerrors.Icon");
             // 
             // frmCategory
             // 
@@ -225,10 +243,12 @@
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Brands";
+            Load += frmCategory_Load;
             pnlHeaders.ResumeLayout(false);
             pnlHeaders.PerformLayout();
             pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvCategories).EndInit();
+            ((System.ComponentModel.ISupportInitialize)validationerrors).EndInit();
             ResumeLayout(false);
         }
 
@@ -245,7 +265,8 @@
         private TextBox txtHSNCode;
         private Label label7;
         private TextBox txtCategoryName;
-        private Label label2;
         private Label label3;
+        private Button btnCancel;
+        private ErrorProvider validationerrors;
     }
 }

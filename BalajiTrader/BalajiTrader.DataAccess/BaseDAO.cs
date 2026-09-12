@@ -12,7 +12,7 @@ namespace BalajiTrader.DataAccess
 {
     public class BaseDAO
     {
-        #region
+        #region Instance Variables
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private IDbConnection _connection;
         public static readonly int Large_TimeOut = Convert.ToInt32(ConfigurationManager.AppSettings["DatabaseTimeOut"]);

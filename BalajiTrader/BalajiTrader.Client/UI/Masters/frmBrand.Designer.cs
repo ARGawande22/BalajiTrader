@@ -32,6 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             pnlHeaders = new Panel();
+            cmbCategory = new ComboBox();
             btnSave = new Button();
             txtCategoryName = new TextBox();
             label2 = new Label();
@@ -41,7 +42,6 @@
             pnlGrid = new Panel();
             dgvBrands = new DataGridView();
             SrNo = new DataGridViewTextBoxColumn();
-            cmbCategory = new ComboBox();
             pnlHeaders.SuspendLayout();
             pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBrands).BeginInit();
@@ -61,6 +61,16 @@
             pnlHeaders.Name = "pnlHeaders";
             pnlHeaders.Size = new Size(546, 133);
             pnlHeaders.TabIndex = 0;
+            // 
+            // cmbCategory
+            // 
+            cmbCategory.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbCategory.Font = new Font("Calibri", 12F);
+            cmbCategory.FormattingEnabled = true;
+            cmbCategory.Location = new Point(189, 52);
+            cmbCategory.Name = "cmbCategory";
+            cmbCategory.Size = new Size(208, 27);
+            cmbCategory.TabIndex = 72;
             // 
             // btnSave
             // 
@@ -175,16 +185,6 @@
             SrNo.HeaderText = "Sr No.";
             SrNo.Name = "SrNo";
             SrNo.ReadOnly = true;
-            // 
-            // cmbCategory
-            // 
-            cmbCategory.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cmbCategory.Font = new Font("Calibri", 12F);
-            cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(193, 53);
-            cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(204, 27);
-            cmbCategory.TabIndex = 72;
             // 
             // frmBrand
             // 
