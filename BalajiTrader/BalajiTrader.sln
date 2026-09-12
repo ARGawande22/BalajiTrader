@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalajiTrader.Client", "BalajiTrader.Client\BalajiTrader.Client.csproj", "{C0A80AA0-681D-4591-B96C-2812CFCCE80F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0A80AA0-681D-4591-B96C-2812CFCCE80F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A80AA0-681D-4591-B96C-2812CFCCE80F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A80AA0-681D-4591-B96C-2812CFCCE80F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A80AA0-681D-4591-B96C-2812CFCCE80F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {668A69FF-9FD5-4B4C-9A41-47537C2C05A1}
+	EndGlobalSection
+EndGlobal
