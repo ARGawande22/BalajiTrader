@@ -53,7 +53,11 @@
             picPurchaseReport = new PictureBox();
             btnNewInvoice = new Button();
             mainMenuStrip = new MenuStrip();
-            masterToolStripMenuItem = new ToolStripMenuItem();
+            tsMaster = new ToolStripMenuItem();
+            tsCatagory = new ToolStripMenuItem();
+            tsBrands = new ToolStripMenuItem();
+            tsUnits = new ToolStripMenuItem();
+            tsSizes = new ToolStripMenuItem();
             reportsToolStripMenuItem = new ToolStripMenuItem();
             toolsToolStripMenuItem = new ToolStripMenuItem();
             pnlMain.SuspendLayout();
@@ -169,9 +173,9 @@
             pnlSalesReport.Controls.Add(lblIncoice);
             pnlSalesReport.Controls.Add(picSalesReport);
             pnlSalesReport.Controls.Add(lblCustomer);
-            pnlSalesReport.Location = new Point(3, 132);
+            pnlSalesReport.Location = new Point(3, 123);
             pnlSalesReport.Name = "pnlSalesReport";
-            pnlSalesReport.Size = new Size(342, 163);
+            pnlSalesReport.Size = new Size(342, 172);
             pnlSalesReport.TabIndex = 13;
             // 
             // lblStocks
@@ -265,7 +269,7 @@
             pnlPurchaseReport.Controls.Add(picPurchaseReport);
             pnlPurchaseReport.Location = new Point(3, 3);
             pnlPurchaseReport.Name = "pnlPurchaseReport";
-            pnlPurchaseReport.Size = new Size(342, 123);
+            pnlPurchaseReport.Size = new Size(342, 114);
             pnlPurchaseReport.TabIndex = 8;
             // 
             // lblPO
@@ -344,21 +348,62 @@
             // 
             // mainMenuStrip
             // 
-            mainMenuStrip.Items.AddRange(new ToolStripItem[] { masterToolStripMenuItem, reportsToolStripMenuItem, toolsToolStripMenuItem });
+            mainMenuStrip.Items.AddRange(new ToolStripItem[] { tsMaster, reportsToolStripMenuItem, toolsToolStripMenuItem });
             mainMenuStrip.Location = new Point(0, 0);
             mainMenuStrip.Name = "mainMenuStrip";
             mainMenuStrip.Size = new Size(1008, 24);
             mainMenuStrip.TabIndex = 2;
             mainMenuStrip.Text = "menuStrip1";
             // 
-            // masterToolStripMenuItem
+            // tsMaster
             // 
-            masterToolStripMenuItem.Name = "masterToolStripMenuItem";
-            masterToolStripMenuItem.Size = new Size(55, 20);
-            masterToolStripMenuItem.Text = "Master";
+            tsMaster.DropDownItems.AddRange(new ToolStripItem[] { tsCatagory, tsBrands, tsUnits, tsSizes });
+            tsMaster.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tsMaster.ForeColor = Color.SteelBlue;
+            tsMaster.Name = "tsMaster";
+            tsMaster.Size = new Size(55, 20);
+            tsMaster.Text = "Master";
+            // 
+            // tsCatagory
+            // 
+            tsCatagory.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tsCatagory.ForeColor = Color.SteelBlue;
+            tsCatagory.Name = "tsCatagory";
+            tsCatagory.Size = new Size(180, 22);
+            tsCatagory.Text = "Categories";
+            tsCatagory.Click += tsCategory_Click;
+            // 
+            // tsBrands
+            // 
+            tsBrands.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tsBrands.ForeColor = Color.SteelBlue;
+            tsBrands.Name = "tsBrands";
+            tsBrands.Size = new Size(180, 22);
+            tsBrands.Text = "Brands";
+            tsBrands.Click += tsBrands_Click;
+            // 
+            // tsUnits
+            // 
+            tsUnits.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tsUnits.ForeColor = Color.SteelBlue;
+            tsUnits.Name = "tsUnits";
+            tsUnits.Size = new Size(180, 22);
+            tsUnits.Text = "Units";
+            tsUnits.Click += tsUnits_Click;
+            // 
+            // tsSizes
+            // 
+            tsSizes.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tsSizes.ForeColor = Color.SteelBlue;
+            tsSizes.Name = "tsSizes";
+            tsSizes.Size = new Size(180, 22);
+            tsSizes.Text = "Sizes";
+            tsSizes.Click += tsSizes_Click;
             // 
             // reportsToolStripMenuItem
             // 
+            reportsToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            reportsToolStripMenuItem.ForeColor = Color.SteelBlue;
             reportsToolStripMenuItem.Image = Properties.Resources.Reports;
             reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             reportsToolStripMenuItem.Size = new Size(75, 20);
@@ -366,9 +411,11 @@
             // 
             // toolsToolStripMenuItem
             // 
+            toolsToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            toolsToolStripMenuItem.ForeColor = Color.SteelBlue;
             toolsToolStripMenuItem.Image = Properties.Resources.Settings;
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            toolsToolStripMenuItem.Size = new Size(77, 20);
+            toolsToolStripMenuItem.Size = new Size(78, 20);
             toolsToolStripMenuItem.Text = "Settings";
             // 
             // Main
@@ -388,6 +435,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Balaji Trader & Enterprices";
             WindowState = FormWindowState.Maximized;
+            Load += Main_Load;
             pnlMain.ResumeLayout(false);
             pnlMain.PerformLayout();
             pnlMainMenu.ResumeLayout(false);
@@ -409,7 +457,7 @@
 
         private Panel pnlMain;
         private MenuStrip mainMenuStrip;
-        private ToolStripMenuItem masterToolStripMenuItem;
+        private ToolStripMenuItem tsMaster;
         private ToolStripMenuItem reportsToolStripMenuItem;
         private ToolStripMenuItem toolsToolStripMenuItem;
         private Button btnNewInvoice;
@@ -434,5 +482,9 @@
         private Label lblUsers;
         private Label lblShopDetails;
         private Label lblTaxes;
+        private ToolStripMenuItem tsCatagory;
+        private ToolStripMenuItem tsBrands;
+        private ToolStripMenuItem tsUnits;
+        private ToolStripMenuItem tsSizes;
     }
 }

@@ -3,7 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalajiTrader.Client", "BalajiTrader.Client\BalajiTrader.Client.csproj", "{C0A80AA0-681D-4591-B96C-2812CFCCE80F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalajiTrader.Client", "BalajiTrader.Client\BalajiTrader.Client.csproj", "{C0A80AA0-681D-4591-B96C-2812CFCCE80F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4EA357B1-55E5-4C6E-9D4B-1E6A50B50036} = {4EA357B1-55E5-4C6E-9D4B-1E6A50B50036}
+		{514E0B25-CED9-419F-97D6-E68D2C923592} = {514E0B25-CED9-419F-97D6-E68D2C923592}
+		{79240FD7-51F7-4AEF-93AC-A88F5FB05ACC} = {79240FD7-51F7-4AEF-93AC-A88F5FB05ACC}
+		{CB2BF0E7-1092-4455-803C-07ED14C5B49F} = {CB2BF0E7-1092-4455-803C-07ED14C5B49F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalajiTrader.Entities", "BalajiTrader.Entities\BalajiTrader.Entities.csproj", "{514E0B25-CED9-419F-97D6-E68D2C923592}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4EA357B1-55E5-4C6E-9D4B-1E6A50B50036} = {4EA357B1-55E5-4C6E-9D4B-1E6A50B50036}
+		{79240FD7-51F7-4AEF-93AC-A88F5FB05ACC} = {79240FD7-51F7-4AEF-93AC-A88F5FB05ACC}
+		{CB2BF0E7-1092-4455-803C-07ED14C5B49F} = {CB2BF0E7-1092-4455-803C-07ED14C5B49F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalajiTrader.Business", "BalajiTrader.Business\BalajiTrader.Business.csproj", "{4EA357B1-55E5-4C6E-9D4B-1E6A50B50036}"
+	ProjectSection(ProjectDependencies) = postProject
+		{79240FD7-51F7-4AEF-93AC-A88F5FB05ACC} = {79240FD7-51F7-4AEF-93AC-A88F5FB05ACC}
+		{CB2BF0E7-1092-4455-803C-07ED14C5B49F} = {CB2BF0E7-1092-4455-803C-07ED14C5B49F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalajiTrader.Data", "BalajiTrader.Data\BalajiTrader.Data.csproj", "{CB2BF0E7-1092-4455-803C-07ED14C5B49F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{79240FD7-51F7-4AEF-93AC-A88F5FB05ACC} = {79240FD7-51F7-4AEF-93AC-A88F5FB05ACC}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalajiTrader.DataAccess", "BalajiTrader.DataAccess\BalajiTrader.DataAccess.csproj", "{79240FD7-51F7-4AEF-93AC-A88F5FB05ACC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +41,22 @@ Global
 		{C0A80AA0-681D-4591-B96C-2812CFCCE80F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0A80AA0-681D-4591-B96C-2812CFCCE80F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0A80AA0-681D-4591-B96C-2812CFCCE80F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{514E0B25-CED9-419F-97D6-E68D2C923592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{514E0B25-CED9-419F-97D6-E68D2C923592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{514E0B25-CED9-419F-97D6-E68D2C923592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{514E0B25-CED9-419F-97D6-E68D2C923592}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EA357B1-55E5-4C6E-9D4B-1E6A50B50036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EA357B1-55E5-4C6E-9D4B-1E6A50B50036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EA357B1-55E5-4C6E-9D4B-1E6A50B50036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EA357B1-55E5-4C6E-9D4B-1E6A50B50036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB2BF0E7-1092-4455-803C-07ED14C5B49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB2BF0E7-1092-4455-803C-07ED14C5B49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB2BF0E7-1092-4455-803C-07ED14C5B49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB2BF0E7-1092-4455-803C-07ED14C5B49F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79240FD7-51F7-4AEF-93AC-A88F5FB05ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79240FD7-51F7-4AEF-93AC-A88F5FB05ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79240FD7-51F7-4AEF-93AC-A88F5FB05ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79240FD7-51F7-4AEF-93AC-A88F5FB05ACC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
