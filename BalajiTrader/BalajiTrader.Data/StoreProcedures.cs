@@ -18,5 +18,7 @@ namespace BalajiTrader.Data
         internal static readonly string SelBrands = "sel_Brand";
         internal static readonly string SelUnits = "sel_Unit";
         internal static readonly string SelSizes = "sel_Size";
+
+        internal static readonly string del_Category = "del_Category";
     }
 }

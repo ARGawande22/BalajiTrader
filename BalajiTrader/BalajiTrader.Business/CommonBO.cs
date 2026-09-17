@@ -54,5 +54,10 @@ namespace BalajiTrader.Business
         {
             return DAOFactory.CommonDAO.GetSizes(sizeId);
         }
+
+        public bool EnableDisableCategory(int categoryId, string Status)
+        {
+            return DAOFactory.CommonDAO.EnableDisableCategory(categoryId, Status);
+        }
     }
 }

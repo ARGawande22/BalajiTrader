@@ -22,7 +22,7 @@ namespace BalajiTrader.Client.UI.Masters
     public partial class frmCategory : BaseAsyncForm
     {
         #region  Instance Variable
-        private static readonly ILog log = LogManager.GetLogger(typeof(frmCategory));        
+        private static readonly ILog log = LogManager.GetLogger(typeof(frmCategory));
         public bool FStatus { get; set; }
         ToolTip toolTip1 = new ToolTip();
         private ValidationProcess _process;
@@ -30,10 +30,13 @@ namespace BalajiTrader.Client.UI.Masters
         private Category _category = null;
         private int _categoryId = 0;
         private string _event = "New";
+
+        private int rowIndex, columnIndex, firstRowIndex = 0;
+        string _message = string.Empty;
         #endregion
 
         public frmCategory()
-        {           
+        {
             InitializeComponent();
             _process = new ValidationProcess();
             _category = new Category();
@@ -57,8 +60,8 @@ namespace BalajiTrader.Client.UI.Masters
         private void btnCancel_Click(object sender, EventArgs e)
         {
             CommonProcess.AddCategory = null;
+            Clear();
             FStatus = false;
-            this.Close();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -66,7 +69,7 @@ namespace BalajiTrader.Client.UI.Masters
             GetCategoryObject();
             if (BindValidationsToControl())
             {
-                if (CommonProcess.AddUpdateCategory(_categoryId,_category.CategoryName,_category.HSNCode,_category.Description))
+                if (CommonProcess.AddUpdateCategory(_categoryId, _category.CategoryName, _category.HSNCode, _category.Description))
                 {
                     MessageBox.Show(string.Format("categories details {0} successfully..!", _event == "New" ? "inserted" : "updated"), Constant.title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FStatus = true;
@@ -79,7 +82,7 @@ namespace BalajiTrader.Client.UI.Masters
                         Constant.title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     FStatus = false;
                 }
-            }                
+            }
         }
 
         private void Common_KeyPress(object sender, KeyPressEventArgs e)
@@ -118,6 +121,7 @@ namespace BalajiTrader.Client.UI.Masters
             txtCategoryName.Clear();
             txtHSNCode.Clear();
             txtDescription.Clear();
+            _event = "New";
         }
 
         private void refreshData()
@@ -130,7 +134,7 @@ namespace BalajiTrader.Client.UI.Masters
         private void BindCategoriesDetails(int categoryId)
         {
             List<Category> _tmpCategories = new List<Category>();
-            _tmpCategories   = CommonProcess.GetCategories(categoryId);
+            _tmpCategories = CommonProcess.GetCategories(categoryId);
 
             _categorys = new List<Category>();
             foreach (Category _tmpcategory in _tmpCategories)
@@ -148,7 +152,7 @@ namespace BalajiTrader.Client.UI.Masters
             {
                 //stsMessage.Visible = false;
                 dgvCategories.Visible = true;
-            }            
+            }
 
             var _list = _categorys.Select(cd => new
             {
@@ -299,6 +303,100 @@ namespace BalajiTrader.Client.UI.Masters
         }
         #endregion
 
+        #region Grid Event
+        private void dgvCategories_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            try
+            {
+            }
+            catch (Exception ex) { }
+        }
+
+        private void dgvCategories_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if ((e.ColumnIndex != 7 && e.ColumnIndex != 8) || e.RowIndex < 0 || ((e.ColumnIndex == 7) && isDisabled(e.RowIndex)))
+                {
+                    dgvCategories.Cursor = Cursors.Default;
+                    return;
+                }
+
+                dgvCategories.Cursor = Cursors.Hand;
+                var cell = dgvCategories[e.ColumnIndex, e.RowIndex];
+                if (e.ColumnIndex == 7)
+                    cell.ToolTipText = "Edit category details..!";
+                else if (e.ColumnIndex == 8)
+                    cell.ToolTipText = isDisabled(e.RowIndex) ? "Re-enable the category" : "Disable the category from here..!";
+            }
+            catch (Exception ex) { log.Error("Error on cell mouse enter :" + ex.Message); }
+        }
+
+        private void dgvCategories_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndex = e.RowIndex;
+            if (rowIndex < 0)
+                return;
+            else if ((e.ColumnIndex == 7) && isDisabled(e.RowIndex)) //It is only to prevent edit if the category is disabled.
+                return;
+            else if (e.ColumnIndex == 7)
+                EditUser(e.RowIndex);
+            else if (e.ColumnIndex == 8)
+                EnableDisableUser();
+        }
+
+        private void EditUser(int r)
+        {
+            try
+            {
+                string CategoryName = dgvCategories.Rows[r].Cells["CategoryName"].Value.ToString();
+                _message = string.Format("Want to edit {0} category details.", CategoryName);
+                DialogResult _dialog = MessageBox.Show(_message, Constant.title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (_dialog == DialogResult.No)
+                    return;
+
+                _categoryId = Validations.ConvertToInt(dgvCategories.Rows[r].Cells["CategoryId"].Value.ToString());
+                string HSNCde = dgvCategories.Rows[r].Cells["HSNCode"].Value.ToString();
+                string Description = dgvCategories.Rows[r].Cells["Description"].Value.ToString();
+
+                _event = "Edit";
+                txtCategoryName.Text = CategoryName;
+                txtHSNCode.Text= HSNCde;
+                txtDescription.Text = Description;
+            }
+            catch (Exception ex) { log.Error("Error while editing category details :" + ex.Message); }
+        }
+
+        private void EnableDisableUser()
+        {
+            try
+            {
+                string CategoryName = dgvCategories.Rows[rowIndex].Cells["CategoryName"].Value.ToString();
+                _message = String.Format("Want to {0} category: {1}", isDisabled(rowIndex) ? "Re-enable the" : "disable the", CategoryName);
+                DialogResult _dialog = MessageBox.Show(_message, Constant.title, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (_dialog == DialogResult.No)
+                    return;
+
+                firstRowIndex = dgvCategories.FirstDisplayedScrollingRowIndex;
+                int categoryId = Validations.ConvertToInt(dgvCategories.Rows[rowIndex].Cells["CategoryId"].Value.ToString());
+                string Status = isDisabled(rowIndex) ? "1" : "0";
+
+                if (CommonProcess.EnableDisableCategory(categoryId, Status))
+                {
+                    _message = String.Format("Category {0} ", isDisabled(rowIndex) ? "Re-enable successfully...!" : "is disabled now..!");
+                    MessageBox.Show(_message, Constant.title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    refreshData();
+                    dgvCategories.FirstDisplayedScrollingRowIndex = firstRowIndex;
+                }
+                else
+                {
+                    _message = String.Format("Error in {0} catogory:", isDisabled(rowIndex) ? "Re-enabling the" : "disabling the");
+                    MessageBox.Show(_message, Constant.title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex) { log.Error("Error while enabling/disabling category :" + ex.Message); }
+        }
+        #endregion
         #endregion
     }
 }

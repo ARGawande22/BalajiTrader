@@ -199,6 +199,13 @@ namespace BalajiTrader.Entities
         }
         #endregion
 
+        #region Put Method
+        public static bool EnableDisableCategory(int categoryId, string Status)
+        {
+            return BOFactory.CommonBO.EnableDisableCategory(categoryId, Status);
+        }
+        #endregion
+
         #region Linq Methods
         public static List<Category> GetCategories(int categoryId = 0)
         {

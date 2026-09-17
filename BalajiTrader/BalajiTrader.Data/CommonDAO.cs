@@ -163,5 +163,24 @@ namespace BalajiTrader.Data
                 return null;
             }
         }
+
+        public bool EnableDisableCategory(int categoryId, string Status)
+        {
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[] {
+                    new SqlParameter("@categoryId",categoryId),
+                    new SqlParameter("@status",Status)
+                };
+
+                ExecuteNonQuery(StoreProcedures.del_Category, parameters);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message.ToString());
+                return false;
+            }
+        }
     }
 }

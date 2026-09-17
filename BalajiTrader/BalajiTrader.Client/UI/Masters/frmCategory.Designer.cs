@@ -72,16 +72,15 @@
             // 
             // btnCancel
             // 
-            btnCancel.Anchor = AnchorStyles.Right;
             btnCancel.BackColor = Color.WhiteSmoke;
             btnCancel.ForeColor = SystemColors.ActiveCaptionText;
             btnCancel.Image = Properties.Resources.Exit;
             btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancel.Location = new Point(455, 123);
+            btnCancel.Location = new Point(451, 123);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(81, 30);
+            btnCancel.Size = new Size(75, 30);
             btnCancel.TabIndex = 75;
-            btnCancel.Text = "Cancel";
+            btnCancel.Text = "Clear";
             btnCancel.TextAlign = ContentAlignment.MiddleRight;
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
@@ -93,7 +92,7 @@
             btnSave.ForeColor = SystemColors.ActiveCaptionText;
             btnSave.Image = Properties.Resources.Save_Update;
             btnSave.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSave.Location = new Point(312, 122);
+            btnSave.Location = new Point(308, 122);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(137, 32);
             btnSave.TabIndex = 74;
@@ -213,6 +212,9 @@
             dgvCategories.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvCategories.Size = new Size(544, 173);
             dgvCategories.TabIndex = 4;
+            dgvCategories.CellClick += dgvCategories_CellClick;
+            dgvCategories.CellMouseEnter += dgvCategories_CellMouseEnter;
+            dgvCategories.DataError += dgvCategories_DataError;
             // 
             // SrNo
             // 
