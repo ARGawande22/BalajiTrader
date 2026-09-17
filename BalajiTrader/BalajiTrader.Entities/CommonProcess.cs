@@ -77,7 +77,7 @@ namespace BalajiTrader.Entities
         #endregion
 
         #region Get Method
-        public static void GetCategories(int categoryId)
+        public static void GetAllCategories(int categoryId=0)
         {
             try
             {
@@ -107,7 +107,7 @@ namespace BalajiTrader.Entities
             }
         }
 
-        public static void GetBrands(int brandId)
+        public static void GetAllBrands(int brandId)
         {
             try
             {
@@ -137,7 +137,7 @@ namespace BalajiTrader.Entities
             }
         }
 
-        public static void GetUnits(int unitId)
+        public static void GetAllUnits(int unitId)
         {
             try
             {
@@ -166,7 +166,7 @@ namespace BalajiTrader.Entities
             }
         }
 
-        public static void GetSizes(int sizeId)
+        public static void GetAllSizes(int sizeId)
         {
             try
             {
@@ -196,6 +196,34 @@ namespace BalajiTrader.Entities
             {
                 log.Info("Error getting sizes. " + ex.Message);
             }
+        }
+        #endregion
+
+        #region Linq Methods
+        public static List<Category> GetCategories(int categoryId = 0)
+        {
+            List<Category> _categories = new List<Category>();
+
+            _categories = (from c in Categories
+                           where ((c.CategoryId == categoryId || categoryId==0))
+                      orderby c.CategoryId
+                      select c).ToList();
+
+            return _categories;
+        }
+
+        public static Category CategoryCopy(Category category)
+        {
+            Category _tmpcategory = new Category
+            {
+                CategoryId = category.CategoryId,
+                CategoryName = category.CategoryName,
+                HSNCode = category.HSNCode,
+                Description = category.Description,
+                Status = category.Status,
+                Created = category.Created
+            };
+            return _tmpcategory;
         }
         #endregion
         #endregion

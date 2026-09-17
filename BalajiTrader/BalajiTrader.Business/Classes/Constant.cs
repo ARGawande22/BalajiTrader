@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BalajiTrader.Business.Classes
 {
@@ -25,5 +27,9 @@ namespace BalajiTrader.Business.Classes
         public const string Addrkey = "Address";
         public const string PinKey = "Pincode";
         public const string GSTKey = "GSTNo";
+       
+        public const char PasswordMask = '*';
+        public const char PasswordBullet = '•';
+        public const char PasswordDash = '-';
     }
 }
