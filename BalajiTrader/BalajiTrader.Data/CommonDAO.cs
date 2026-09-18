@@ -182,5 +182,24 @@ namespace BalajiTrader.Data
                 return false;
             }
         }
+
+        public bool EnableDisableBrand(int brandId, string Status)
+        {
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[] {
+                    new SqlParameter("@brandId",brandId),
+                    new SqlParameter("@status",Status)
+                };
+
+                ExecuteNonQuery(StoreProcedures.del_Brand, parameters);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message.ToString());
+                return false;
+            }
+        }
     }
 }

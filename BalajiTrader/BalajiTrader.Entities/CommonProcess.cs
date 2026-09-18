@@ -23,6 +23,7 @@ namespace BalajiTrader.Entities
         public static List<Sizes> _sizes;
 
         public static Category _addCategory = null;
+        public static Brand _addBrands = null;
         #endregion
 
         #region Prperties
@@ -50,6 +51,12 @@ namespace BalajiTrader.Entities
         {
             get { return _addCategory; }
             set { _addCategory = value; }
+        }
+
+        public static Brand AddBrands
+        {
+            get { return _addBrands; }
+            set { _addBrands = value; }
         }
         #endregion
 
@@ -107,7 +114,7 @@ namespace BalajiTrader.Entities
             }
         }
 
-        public static void GetAllBrands(int brandId)
+        public static void GetAllBrands(int brandId=0)
         {
             try
             {
@@ -204,6 +211,11 @@ namespace BalajiTrader.Entities
         {
             return BOFactory.CommonBO.EnableDisableCategory(categoryId, Status);
         }
+
+        public static bool EnableDisableBrand(int brandId, string Status)
+        {
+            return BOFactory.CommonBO.EnableDisableBrand(brandId, Status);
+        }
         #endregion
 
         #region Linq Methods
@@ -232,6 +244,77 @@ namespace BalajiTrader.Entities
             };
             return _tmpcategory;
         }
+
+        public static List<Category> GetCategoryFromList()
+        {
+            List<Category> _categoryType = null;
+
+            #region Fiirs Rows  
+            Category _DefCategoryType = new Category
+            {
+                CategoryId = Convert.ToInt32(0),
+                CategoryName = "--Select--"
+            };
+            #endregion
+
+            _categoryType = (from c in Categories
+                             where (c.Status == 1)
+                             orderby c.CategoryId
+                           select c).ToList();
+
+            _categoryType.Insert(0, _DefCategoryType);
+
+            return _categoryType;
+        }
+
+        public static List<Brand> GetBrands(int brandId = 0)
+        {
+            List<Brand> _brads = new List<Brand>();
+
+            _brads = (from b in Brands
+                           where ((b.BrandId == brandId || brandId == 0))
+                           orderby b.CategoryId,b.BrandName
+                           select b).ToList();
+
+            return _brads;
+        }
+
+        public static Brand BrandCopy(Brand brand)
+        {
+            Brand _tmpcategory = new Brand
+            {
+                BrandId=brand.BrandId,                
+                CategoryId = brand.CategoryId,
+                BrandName = brand.BrandName,
+                CategoryName = brand.CategoryName,
+                Status = brand.Status,
+                Created = brand.Created
+            };
+            return _tmpcategory;
+        }
+
+        public static List<Brand> GetBrandsFromList()
+        {
+            List<Brand> _brandType = null;
+
+            #region Fiirs Rows  
+            Brand _DefbrandType = new Brand
+            {
+                BrandId = Convert.ToInt32(0),
+                BrandName = "--Select--"
+            };
+            #endregion
+
+            _brandType = (from b in Brands
+                             where (b.Status == 1)
+                             orderby b.BrandName
+                             select b).ToList();
+
+            _brandType.Insert(0, _DefbrandType);
+
+            return _brandType;
+        }
+
         #endregion
         #endregion
 

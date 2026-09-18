@@ -59,5 +59,10 @@ namespace BalajiTrader.Business
         {
             return DAOFactory.CommonDAO.EnableDisableCategory(categoryId, Status);
         }
+
+        public bool EnableDisableBrand(int brandId, string Status)
+        {
+            return DAOFactory.CommonDAO.EnableDisableBrand(brandId, Status);
+        }
     }
 }

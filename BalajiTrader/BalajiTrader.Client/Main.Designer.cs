@@ -369,7 +369,7 @@
             tsCatagory.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsCatagory.ForeColor = Color.SteelBlue;
             tsCatagory.Name = "tsCatagory";
-            tsCatagory.Size = new Size(180, 22);
+            tsCatagory.Size = new Size(129, 22);
             tsCatagory.Text = "Categories";
             tsCatagory.Click += tsCategory_Click;
             // 
@@ -378,7 +378,7 @@
             tsBrands.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsBrands.ForeColor = Color.SteelBlue;
             tsBrands.Name = "tsBrands";
-            tsBrands.Size = new Size(180, 22);
+            tsBrands.Size = new Size(129, 22);
             tsBrands.Text = "Brands";
             tsBrands.Click += tsBrands_Click;
             // 
@@ -387,7 +387,7 @@
             tsUnits.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsUnits.ForeColor = Color.SteelBlue;
             tsUnits.Name = "tsUnits";
-            tsUnits.Size = new Size(180, 22);
+            tsUnits.Size = new Size(129, 22);
             tsUnits.Text = "Units";
             tsUnits.Click += tsUnits_Click;
             // 
@@ -396,7 +396,7 @@
             tsSizes.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsSizes.ForeColor = Color.SteelBlue;
             tsSizes.Name = "tsSizes";
-            tsSizes.Size = new Size(180, 22);
+            tsSizes.Size = new Size(129, 22);
             tsSizes.Text = "Sizes";
             tsSizes.Click += tsSizes_Click;
             // 
@@ -435,6 +435,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Balaji Trader & Enterprices";
             WindowState = FormWindowState.Maximized;
+            FormClosing += Main_FormClosing;
             Load += Main_Load;
             pnlMain.ResumeLayout(false);
             pnlMain.PerformLayout();

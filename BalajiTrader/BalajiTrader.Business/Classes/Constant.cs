@@ -31,5 +31,7 @@ namespace BalajiTrader.Business.Classes
         public const char PasswordMask = '*';
         public const char PasswordBullet = '•';
         public const char PasswordDash = '-';
+
+        public const string Namekey1 = "Name1";
     }
 }

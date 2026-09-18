@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBrand));
             pnlHeaders = new Panel();
             cmbCategory = new ComboBox();
             btnSave = new Button();
-            txtCategoryName = new TextBox();
+            txtBrandName = new TextBox();
             label2 = new Label();
             label7 = new Label();
             lblCategory = new Label();
@@ -42,17 +44,21 @@
             pnlGrid = new Panel();
             dgvBrands = new DataGridView();
             SrNo = new DataGridViewTextBoxColumn();
+            validationerrors = new ErrorProvider(components);
+            btnCancel = new Button();
             pnlHeaders.SuspendLayout();
             pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBrands).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)validationerrors).BeginInit();
             SuspendLayout();
             // 
             // pnlHeaders
             // 
             pnlHeaders.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pnlHeaders.Controls.Add(btnCancel);
             pnlHeaders.Controls.Add(cmbCategory);
             pnlHeaders.Controls.Add(btnSave);
-            pnlHeaders.Controls.Add(txtCategoryName);
+            pnlHeaders.Controls.Add(txtBrandName);
             pnlHeaders.Controls.Add(label2);
             pnlHeaders.Controls.Add(label7);
             pnlHeaders.Controls.Add(lblCategory);
@@ -67,9 +73,9 @@
             cmbCategory.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbCategory.Font = new Font("Calibri", 12F);
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(189, 52);
+            cmbCategory.Location = new Point(193, 10);
             cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(208, 27);
+            cmbCategory.Size = new Size(214, 27);
             cmbCategory.TabIndex = 72;
             // 
             // btnSave
@@ -86,20 +92,21 @@
             btnSave.Text = "Save && Update";
             btnSave.TextAlign = ContentAlignment.MiddleRight;
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
-            // txtCategoryName
+            // txtBrandName
             // 
-            txtCategoryName.Font = new Font("Calibri", 12F);
-            txtCategoryName.Location = new Point(189, 18);
-            txtCategoryName.Name = "txtCategoryName";
-            txtCategoryName.Size = new Size(208, 27);
-            txtCategoryName.TabIndex = 45;
+            txtBrandName.Font = new Font("Calibri", 12F);
+            txtBrandName.Location = new Point(193, 55);
+            txtBrandName.Name = "txtBrandName";
+            txtBrandName.Size = new Size(214, 27);
+            txtBrandName.TabIndex = 45;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.Red;
-            label2.Location = new Point(110, 61);
+            label2.Location = new Point(130, 18);
             label2.Name = "label2";
             label2.Size = new Size(15, 18);
             label2.TabIndex = 43;
@@ -109,7 +116,7 @@
             // 
             label7.AutoSize = true;
             label7.ForeColor = Color.Red;
-            label7.Location = new Point(147, 18);
+            label7.Location = new Point(152, 55);
             label7.Name = "label7";
             label7.Size = new Size(15, 18);
             label7.TabIndex = 42;
@@ -119,7 +126,7 @@
             // 
             lblCategory.AutoSize = true;
             lblCategory.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCategory.Location = new Point(24, 59);
+            lblCategory.Location = new Point(50, 17);
             lblCategory.Name = "lblCategory";
             lblCategory.Size = new Size(75, 19);
             lblCategory.TabIndex = 1;
@@ -129,7 +136,7 @@
             // 
             lblBrandName.AutoSize = true;
             lblBrandName.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBrandName.Location = new Point(24, 17);
+            lblBrandName.Location = new Point(50, 54);
             lblBrandName.Name = "lblBrandName";
             lblBrandName.Size = new Size(97, 19);
             lblBrandName.TabIndex = 0;
@@ -157,7 +164,7 @@
             dgvBrands.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -179,12 +186,36 @@
             dgvBrands.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvBrands.Size = new Size(544, 208);
             dgvBrands.TabIndex = 4;
+            dgvBrands.CellClick += dgvBrands_CellClick;
+            dgvBrands.CellMouseEnter += dgvBrands_CellMouseEnter;
+            dgvBrands.DataError += dgvBrands_DataError;
             // 
             // SrNo
             // 
             SrNo.HeaderText = "Sr No.";
             SrNo.Name = "SrNo";
             SrNo.ReadOnly = true;
+            // 
+            // validationerrors
+            // 
+            validationerrors.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            validationerrors.ContainerControl = this;
+            validationerrors.Icon = (Icon)resources.GetObject("validationerrors.Icon");
+            // 
+            // btnCancel
+            // 
+            btnCancel.BackColor = Color.WhiteSmoke;
+            btnCancel.ForeColor = SystemColors.ActiveCaptionText;
+            btnCancel.Image = Properties.Resources.Exit;
+            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancel.Location = new Point(332, 93);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 30);
+            btnCancel.TabIndex = 76;
+            btnCancel.Text = "Clear";
+            btnCancel.TextAlign = ContentAlignment.MiddleRight;
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // frmBrand
             // 
@@ -203,10 +234,12 @@
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Brands";
+            Load += frmBrand_Load;
             pnlHeaders.ResumeLayout(false);
             pnlHeaders.PerformLayout();
             pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvBrands).EndInit();
+            ((System.ComponentModel.ISupportInitialize)validationerrors).EndInit();
             ResumeLayout(false);
         }
 
@@ -218,10 +251,12 @@
         private Label label2;
         private Label label7;
         private Label lblCategory;
-        private TextBox txtCategoryName;
+        private TextBox txtBrandName;
         private Button btnSave;
         private DataGridView dgvBrands;
         private DataGridViewTextBoxColumn SrNo;
         private ComboBox cmbCategory;
+        private ErrorProvider validationerrors;
+        private Button btnCancel;
     }
 }

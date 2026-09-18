@@ -51,12 +51,12 @@ namespace BalajiTrader.Client.UI.Masters
             Close();
         }
 
+        #region Events
         private void frmCategory_Load(object sender, EventArgs e)
         {
-            refreshData();
+            BindCategoriesDetails(0);
         }
 
-        #region Events
         private void btnCancel_Click(object sender, EventArgs e)
         {
             CommonProcess.AddCategory = null;
@@ -75,6 +75,7 @@ namespace BalajiTrader.Client.UI.Masters
                     FStatus = true;
                     Clear();
                     refreshData();
+                    //BindCategoriesDetails(0);
                 }
                 else
                 {
@@ -127,7 +128,6 @@ namespace BalajiTrader.Client.UI.Masters
         private void refreshData()
         {
             CommonProcess.GetAllCategories();
-
             BindCategoriesDetails(0);
         }
 
@@ -195,7 +195,7 @@ namespace BalajiTrader.Client.UI.Masters
 
 
                     //Highlight the CategoryName
-                    row.Cells["CategoryName"].Style.Font = Fonts.DefaultBold;
+                    //row.Cells["CategoryName"].Style.Font = Fonts.DefaultBold;
                 }
 
                 //Hide columns
@@ -340,12 +340,12 @@ namespace BalajiTrader.Client.UI.Masters
             else if ((e.ColumnIndex == 7) && isDisabled(e.RowIndex)) //It is only to prevent edit if the category is disabled.
                 return;
             else if (e.ColumnIndex == 7)
-                EditUser(e.RowIndex);
+                EditCategory(e.RowIndex);
             else if (e.ColumnIndex == 8)
-                EnableDisableUser();
+                EnableDisableCategory();
         }
 
-        private void EditUser(int r)
+        private void EditCategory(int r)
         {
             try
             {
@@ -367,7 +367,7 @@ namespace BalajiTrader.Client.UI.Masters
             catch (Exception ex) { log.Error("Error while editing category details :" + ex.Message); }
         }
 
-        private void EnableDisableUser()
+        private void EnableDisableCategory()
         {
             try
             {

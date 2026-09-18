@@ -39,5 +39,39 @@ namespace BalajiTrader.Entities
             return validationErrors;
         }
         #endregion
+
+        #region Validate Brand
+        public ValidationErrors BrandValidation
+        {
+            get
+            {
+                ValidationErrors errors = ValidateBrand();
+                return errors;
+            }
+        }
+
+        public ValidationErrors ValidateBrand()
+        {
+            ValidationErrors validationErrors = new ValidationErrors();
+            Brand _brand = CommonProcess.AddBrands;
+
+            //Category Details
+            #region Category Details
+            if (string.IsNullOrEmpty(_brand.CategoryName))
+            {
+                ValidationError error = new ValidationError(Constant.Namekey, "Please Select the category", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (string.IsNullOrEmpty(_brand.BrandName))
+            {
+                ValidationError error = new ValidationError(Constant.Namekey1, "Please enter the Brand Name", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+            #endregion
+
+            return validationErrors;
+        }
+        #endregion
     }
 }

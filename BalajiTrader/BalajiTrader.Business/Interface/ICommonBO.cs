@@ -24,6 +24,10 @@ namespace BalajiTrader.Business.Interface
         public DataSet GetUnits(int unitId);
 
         public DataSet GetSizes(int sizeId);
+
+        bool EnableDisableCategory(int categoryId, string Status);
+
+        bool EnableDisableBrand(int brandId, string Status);
     }
 
 }

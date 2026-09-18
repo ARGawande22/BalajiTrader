@@ -15,6 +15,10 @@ namespace BalajiTrader.Client.Common
         public static readonly Color DefaultBackColor = Color.Azure;
         public static readonly Color DefaultForeColor = Color.Red;
 
+        public const int Dropdownsize = 200;
+        public const int DefaultDropdownsize = 10;
+        public const ComboBoxStyle DropDown = ComboBoxStyle.DropDown;
+        public const ComboBoxStyle DropDownList = ComboBoxStyle.DropDownList;
 
     }
 }
