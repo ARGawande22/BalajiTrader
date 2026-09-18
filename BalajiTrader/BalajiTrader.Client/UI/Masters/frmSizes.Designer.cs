@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             pnlHeaders = new Panel();
+            cmbUnits = new ComboBox();
+            label2 = new Label();
+            lblUnits = new Label();
+            cmbCategory = new ComboBox();
             btnSave = new Button();
+            label1 = new Label();
             txtSizename = new RichTextBox();
+            lblCategory = new Label();
             lblSizeName = new Label();
             pnlGrid = new Panel();
             dgvSizes = new DataGridView();
             SrNo = new DataGridViewTextBoxColumn();
-            cmbCategory = new ComboBox();
-            label1 = new Label();
-            lblCategory = new Label();
-            cmbUnits = new ComboBox();
-            label2 = new Label();
-            lblUnits = new Label();
+            btnCancel = new Button();
             pnlHeaders.SuspendLayout();
             pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSizes).BeginInit();
@@ -52,6 +53,7 @@
             // pnlHeaders
             // 
             pnlHeaders.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pnlHeaders.Controls.Add(btnCancel);
             pnlHeaders.Controls.Add(cmbUnits);
             pnlHeaders.Controls.Add(label2);
             pnlHeaders.Controls.Add(lblUnits);
@@ -65,122 +67,6 @@
             pnlHeaders.Name = "pnlHeaders";
             pnlHeaders.Size = new Size(546, 163);
             pnlHeaders.TabIndex = 0;
-            // 
-            // btnSave
-            // 
-            btnSave.Anchor = AnchorStyles.Right;
-            btnSave.BackColor = Color.WhiteSmoke;
-            btnSave.ForeColor = SystemColors.ActiveCaptionText;
-            btnSave.Image = Properties.Resources.Save_Update;
-            btnSave.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSave.Location = new Point(177, 122);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(137, 32);
-            btnSave.TabIndex = 74;
-            btnSave.Text = "Save && Update";
-            btnSave.TextAlign = ContentAlignment.MiddleRight;
-            btnSave.UseVisualStyleBackColor = false;
-            // 
-            // txtSizename
-            // 
-            txtSizename.BorderStyle = BorderStyle.FixedSingle;
-            txtSizename.Font = new Font("Calibri", 12F);
-            txtSizename.Location = new Point(167, 86);
-            txtSizename.Name = "txtSizename";
-            txtSizename.Size = new Size(258, 30);
-            txtSizename.TabIndex = 73;
-            txtSizename.Text = "";
-            // 
-            // lblSizeName
-            // 
-            lblSizeName.AutoSize = true;
-            lblSizeName.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSizeName.Location = new Point(60, 91);
-            lblSizeName.Name = "lblSizeName";
-            lblSizeName.Size = new Size(84, 19);
-            lblSizeName.TabIndex = 70;
-            lblSizeName.Text = "Size Name :";
-            // 
-            // pnlGrid
-            // 
-            pnlGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnlGrid.BorderStyle = BorderStyle.FixedSingle;
-            pnlGrid.Controls.Add(dgvSizes);
-            pnlGrid.Location = new Point(12, 192);
-            pnlGrid.Name = "pnlGrid";
-            pnlGrid.Size = new Size(546, 175);
-            pnlGrid.TabIndex = 1;
-            // 
-            // dgvSizes
-            // 
-            dgvSizes.AllowUserToAddRows = false;
-            dgvSizes.AllowUserToResizeColumns = false;
-            dgvSizes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = Color.Azure;
-            dgvSizes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgvSizes.BackgroundColor = Color.White;
-            dgvSizes.BorderStyle = BorderStyle.None;
-            dgvSizes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.SteelBlue;
-            dataGridViewCellStyle5.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvSizes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dgvSizes.ColumnHeadersHeight = 35;
-            dgvSizes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvSizes.Columns.AddRange(new DataGridViewColumn[] { SrNo });
-            dgvSizes.Dock = DockStyle.Fill;
-            dgvSizes.EditMode = DataGridViewEditMode.EditOnEnter;
-            dgvSizes.EnableHeadersVisualStyles = false;
-            dgvSizes.GridColor = Color.LightSteelBlue;
-            dgvSizes.Location = new Point(0, 0);
-            dgvSizes.Name = "dgvSizes";
-            dgvSizes.ReadOnly = true;
-            dgvSizes.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = Color.LightSkyBlue;
-            dgvSizes.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            dgvSizes.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvSizes.Size = new Size(544, 173);
-            dgvSizes.TabIndex = 4;
-            // 
-            // SrNo
-            // 
-            SrNo.HeaderText = "Sr No.";
-            SrNo.Name = "SrNo";
-            SrNo.ReadOnly = true;
-            // 
-            // cmbCategory
-            // 
-            cmbCategory.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cmbCategory.Font = new Font("Calibri", 12F);
-            cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(168, 12);
-            cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(204, 27);
-            cmbCategory.TabIndex = 75;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.ForeColor = Color.Red;
-            label1.Location = new Point(142, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(15, 18);
-            label1.TabIndex = 74;
-            label1.Text = "*";
-            // 
-            // lblCategory
-            // 
-            lblCategory.AutoSize = true;
-            lblCategory.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCategory.Location = new Point(60, 15);
-            lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(75, 19);
-            lblCategory.TabIndex = 73;
-            lblCategory.Text = "Category :";
             // 
             // cmbUnits
             // 
@@ -211,6 +97,136 @@
             lblUnits.Size = new Size(51, 19);
             lblUnits.TabIndex = 76;
             lblUnits.Text = "Units :";
+            // 
+            // cmbCategory
+            // 
+            cmbCategory.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbCategory.Font = new Font("Calibri", 12F);
+            cmbCategory.FormattingEnabled = true;
+            cmbCategory.Location = new Point(168, 12);
+            cmbCategory.Name = "cmbCategory";
+            cmbCategory.Size = new Size(204, 27);
+            cmbCategory.TabIndex = 75;
+            // 
+            // btnSave
+            // 
+            btnSave.Anchor = AnchorStyles.Right;
+            btnSave.BackColor = Color.WhiteSmoke;
+            btnSave.ForeColor = SystemColors.ActiveCaptionText;
+            btnSave.Image = Properties.Resources.Save_Update;
+            btnSave.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSave.Location = new Point(177, 122);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(137, 32);
+            btnSave.TabIndex = 74;
+            btnSave.Text = "Save && Update";
+            btnSave.TextAlign = ContentAlignment.MiddleRight;
+            btnSave.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(142, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(15, 18);
+            label1.TabIndex = 74;
+            label1.Text = "*";
+            // 
+            // txtSizename
+            // 
+            txtSizename.BorderStyle = BorderStyle.FixedSingle;
+            txtSizename.Font = new Font("Calibri", 12F);
+            txtSizename.Location = new Point(167, 86);
+            txtSizename.Name = "txtSizename";
+            txtSizename.Size = new Size(258, 30);
+            txtSizename.TabIndex = 73;
+            txtSizename.Text = "";
+            // 
+            // lblCategory
+            // 
+            lblCategory.AutoSize = true;
+            lblCategory.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCategory.Location = new Point(60, 15);
+            lblCategory.Name = "lblCategory";
+            lblCategory.Size = new Size(75, 19);
+            lblCategory.TabIndex = 73;
+            lblCategory.Text = "Category :";
+            // 
+            // lblSizeName
+            // 
+            lblSizeName.AutoSize = true;
+            lblSizeName.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSizeName.Location = new Point(60, 91);
+            lblSizeName.Name = "lblSizeName";
+            lblSizeName.Size = new Size(84, 19);
+            lblSizeName.TabIndex = 70;
+            lblSizeName.Text = "Size Name :";
+            // 
+            // pnlGrid
+            // 
+            pnlGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlGrid.BorderStyle = BorderStyle.FixedSingle;
+            pnlGrid.Controls.Add(dgvSizes);
+            pnlGrid.Location = new Point(12, 192);
+            pnlGrid.Name = "pnlGrid";
+            pnlGrid.Size = new Size(546, 175);
+            pnlGrid.TabIndex = 1;
+            // 
+            // dgvSizes
+            // 
+            dgvSizes.AllowUserToAddRows = false;
+            dgvSizes.AllowUserToResizeColumns = false;
+            dgvSizes.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.Azure;
+            dgvSizes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvSizes.BackgroundColor = Color.White;
+            dgvSizes.BorderStyle = BorderStyle.None;
+            dgvSizes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvSizes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvSizes.ColumnHeadersHeight = 35;
+            dgvSizes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvSizes.Columns.AddRange(new DataGridViewColumn[] { SrNo });
+            dgvSizes.Dock = DockStyle.Fill;
+            dgvSizes.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgvSizes.EnableHeadersVisualStyles = false;
+            dgvSizes.GridColor = Color.LightSteelBlue;
+            dgvSizes.Location = new Point(0, 0);
+            dgvSizes.Name = "dgvSizes";
+            dgvSizes.ReadOnly = true;
+            dgvSizes.RowHeadersVisible = false;
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightSkyBlue;
+            dgvSizes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dgvSizes.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvSizes.Size = new Size(544, 173);
+            dgvSizes.TabIndex = 4;
+            // 
+            // SrNo
+            // 
+            SrNo.HeaderText = "Sr No.";
+            SrNo.Name = "SrNo";
+            SrNo.ReadOnly = true;
+            // 
+            // btnCancel
+            // 
+            btnCancel.BackColor = Color.WhiteSmoke;
+            btnCancel.ForeColor = SystemColors.ActiveCaptionText;
+            btnCancel.Image = Properties.Resources.Exit;
+            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancel.Location = new Point(320, 122);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 30);
+            btnCancel.TabIndex = 77;
+            btnCancel.Text = "Clear";
+            btnCancel.TextAlign = ContentAlignment.MiddleRight;
+            btnCancel.UseVisualStyleBackColor = false;
             // 
             // frmSizes
             // 
@@ -251,5 +267,6 @@
         private ComboBox cmbUnits;
         private Label label2;
         private Label lblUnits;
+        private Button btnCancel;
     }
 }

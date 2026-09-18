@@ -21,5 +21,7 @@ namespace BalajiTrader.Data
 
         internal static readonly string del_Category = "del_Category";
         internal static readonly string del_Brand = "del_Brand";
+        internal static readonly string del_Unit = "del_Unit";
+        internal static readonly string del_Size = "del_Size";
     }
 }

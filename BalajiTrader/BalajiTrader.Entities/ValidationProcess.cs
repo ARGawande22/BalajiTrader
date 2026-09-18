@@ -73,5 +73,39 @@ namespace BalajiTrader.Entities
             return validationErrors;
         }
         #endregion
+
+        #region Validate Unit
+        public ValidationErrors UnitValidation
+        {
+            get
+            {
+                ValidationErrors errors = ValidateUnit();
+                return errors;
+            }
+        }
+
+        public ValidationErrors ValidateUnit()
+        {
+            ValidationErrors validationErrors = new ValidationErrors();
+            Units _unit = CommonProcess.AddUnit;
+
+            //Category Details
+            #region Unit Details
+            if (string.IsNullOrEmpty(_unit.UnitName))
+            {
+                ValidationError error = new ValidationError(Constant.Namekey, "Please enter the unit name", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (string.IsNullOrEmpty(_unit.Unit))
+            {
+                ValidationError error = new ValidationError(Constant.Namekey1, "Please enter the unit", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+            #endregion
+
+            return validationErrors;
+        }
+        #endregion
     }
 }

@@ -34,6 +34,7 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBrand));
             pnlHeaders = new Panel();
+            btnCancel = new Button();
             cmbCategory = new ComboBox();
             btnSave = new Button();
             txtBrandName = new TextBox();
@@ -45,7 +46,6 @@
             dgvBrands = new DataGridView();
             SrNo = new DataGridViewTextBoxColumn();
             validationerrors = new ErrorProvider(components);
-            btnCancel = new Button();
             pnlHeaders.SuspendLayout();
             pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBrands).BeginInit();
@@ -67,6 +67,21 @@
             pnlHeaders.Name = "pnlHeaders";
             pnlHeaders.Size = new Size(546, 133);
             pnlHeaders.TabIndex = 0;
+            // 
+            // btnCancel
+            // 
+            btnCancel.BackColor = Color.WhiteSmoke;
+            btnCancel.ForeColor = SystemColors.ActiveCaptionText;
+            btnCancel.Image = Properties.Resources.Exit;
+            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancel.Location = new Point(332, 91);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 30);
+            btnCancel.TabIndex = 76;
+            btnCancel.Text = "Clear";
+            btnCancel.TextAlign = ContentAlignment.MiddleRight;
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // cmbCategory
             // 
@@ -201,21 +216,6 @@
             validationerrors.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             validationerrors.ContainerControl = this;
             validationerrors.Icon = (Icon)resources.GetObject("validationerrors.Icon");
-            // 
-            // btnCancel
-            // 
-            btnCancel.BackColor = Color.WhiteSmoke;
-            btnCancel.ForeColor = SystemColors.ActiveCaptionText;
-            btnCancel.Image = Properties.Resources.Exit;
-            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancel.Location = new Point(332, 93);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 30);
-            btnCancel.TabIndex = 76;
-            btnCancel.Text = "Clear";
-            btnCancel.TextAlign = ContentAlignment.MiddleRight;
-            btnCancel.UseVisualStyleBackColor = false;
-            btnCancel.Click += btnCancel_Click;
             // 
             // frmBrand
             // 

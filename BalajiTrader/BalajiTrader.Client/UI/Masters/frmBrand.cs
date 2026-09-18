@@ -20,7 +20,7 @@ namespace BalajiTrader.Client.UI.Masters
     public partial class frmBrand : BaseAsyncForm
     {
         #region  Instance Variable
-        private static readonly ILog log = LogManager.GetLogger(typeof(frmCategory));
+        private static readonly ILog log = LogManager.GetLogger(typeof(frmBrand));
         public bool FStatus { get; set; }
         ToolTip toolTip1 = new ToolTip();
         private ValidationProcess _process;

@@ -25,9 +25,9 @@ namespace BalajiTrader.Business
             return DAOFactory.CommonDAO.AddUpdateBrand(brandId, categoryId, BrandName);
         }
 
-        public bool AddUpdateUnit(int unitId, string UnitName)
+        public bool AddUpdateUnit(int unitId, string UnitName, string Unit)
         {
-            return DAOFactory.CommonDAO.AddUpdateUnit(unitId, UnitName);
+            return DAOFactory.CommonDAO.AddUpdateUnit(unitId, UnitName, Unit);
         }
 
         public bool AddUpdateSize(int sizeId, int categoryId, string SizeName, int unitId)
@@ -63,6 +63,16 @@ namespace BalajiTrader.Business
         public bool EnableDisableBrand(int brandId, string Status)
         {
             return DAOFactory.CommonDAO.EnableDisableBrand(brandId, Status);
+        }
+
+        public bool EnableDisableUnit(int unitId, string Status)
+        {
+            return DAOFactory.CommonDAO.EnableDisableUnit(unitId, Status);
+        }
+
+        public bool EnableDisableSize(int sizeId, string Status)
+        {
+            return DAOFactory.CommonDAO.EnableDisableSize(sizeId, Status);
         }
     }
 }

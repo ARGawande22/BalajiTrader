@@ -56,13 +56,14 @@ namespace BalajiTrader.Data
             }
         }
 
-        public bool AddUpdateUnit(int unitId, string UnitName)
+        public bool AddUpdateUnit(int unitId, string UnitName, string Unit)
         {
             try
             {                
                 SqlParameter[] parameters = new SqlParameter[] {
                     new SqlParameter("@unitId",unitId),
-                    new SqlParameter("@unitName",UnitName)
+                    new SqlParameter("@unitName",UnitName),
+                    new SqlParameter("@unit",Unit)
                 };
 
                 ExecuteNonQuery(StoreProcedures.AddUpdateUnit, parameters);
@@ -193,6 +194,44 @@ namespace BalajiTrader.Data
                 };
 
                 ExecuteNonQuery(StoreProcedures.del_Brand, parameters);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message.ToString());
+                return false;
+            }
+        }
+
+        public bool EnableDisableUnit(int unitId, string Status)
+        {
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[] {
+                    new SqlParameter("@unitId",unitId),
+                    new SqlParameter("@status",Status)
+                };
+
+                ExecuteNonQuery(StoreProcedures.del_Unit, parameters);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message.ToString());
+                return false;
+            }
+        }
+
+        public bool EnableDisableSize(int sizeId, string Status)
+        {
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[] {
+                    new SqlParameter("@sizeId",sizeId),
+                    new SqlParameter("@status",Status)
+                };
+
+                ExecuteNonQuery(StoreProcedures.del_Size, parameters);
                 return true;
             }
             catch (Exception ex)

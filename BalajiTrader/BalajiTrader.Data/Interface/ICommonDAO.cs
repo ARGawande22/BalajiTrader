@@ -13,7 +13,7 @@ namespace BalajiTrader.Data.Interface
 
         bool AddUpdateBrand(int brandId, int categoryId, string BrandName);
         
-        bool AddUpdateUnit(int unitId, string UnitName);
+        bool AddUpdateUnit(int unitId, string UnitName, string Unit);
 
         bool AddUpdateSize(int sizeId, int categoryId, string SizeName, int unitId);
 
@@ -28,5 +28,9 @@ namespace BalajiTrader.Data.Interface
         bool EnableDisableCategory(int categoryId, string Status);
 
         bool EnableDisableBrand(int brandId, string Status);
+
+        bool EnableDisableUnit(int unitId, string Status);
+
+        bool EnableDisableSize(int sizeId, string Status);
     }
 }

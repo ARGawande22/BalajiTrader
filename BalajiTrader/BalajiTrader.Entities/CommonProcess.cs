@@ -24,6 +24,7 @@ namespace BalajiTrader.Entities
 
         public static Category _addCategory = null;
         public static Brand _addBrands = null;
+        public static Units _addUnit = null;
         #endregion
 
         #region Prperties
@@ -58,6 +59,12 @@ namespace BalajiTrader.Entities
             get { return _addBrands; }
             set { _addBrands = value; }
         }
+
+        public static Units AddUnit
+        {
+            get { return _addUnit; }
+            set { _addUnit = value; }
+        }
         #endregion
 
         #region Methods
@@ -72,9 +79,9 @@ namespace BalajiTrader.Entities
             return BOFactory.CommonBO.AddUpdateBrand(brandId, categoryId, BrandName);
         }
 
-        public static bool AddUpdateUnit(int unitId, string UnitName)
+        public static bool AddUpdateUnit(int unitId, string UnitName, string Unit)
         {
-            return BOFactory.CommonBO.AddUpdateUnit(unitId, UnitName);
+            return BOFactory.CommonBO.AddUpdateUnit(unitId, UnitName, Unit);
         }
 
         public static bool AddUpdateSize(int sizeId, int categoryId, string SizeName, int unitId)
@@ -144,7 +151,7 @@ namespace BalajiTrader.Entities
             }
         }
 
-        public static void GetAllUnits(int unitId)
+        public static void GetAllUnits(int unitId=0)
         {
             try
             {
@@ -216,6 +223,16 @@ namespace BalajiTrader.Entities
         {
             return BOFactory.CommonBO.EnableDisableBrand(brandId, Status);
         }
+
+        public static bool EnableDisableUnit(int unitId, string Status)
+        {
+            return BOFactory.CommonBO.EnableDisableUnit(unitId, Status);
+        }
+
+        public static bool EnableDisableSize(int sizeId, string Status)
+        {
+            return BOFactory.CommonBO.EnableDisableSize(sizeId, Status);
+        }
         #endregion
 
         #region Linq Methods
@@ -269,14 +286,14 @@ namespace BalajiTrader.Entities
 
         public static List<Brand> GetBrands(int brandId = 0)
         {
-            List<Brand> _brads = new List<Brand>();
+            List<Brand> _brands = new List<Brand>();
 
-            _brads = (from b in Brands
+            _brands = (from b in Brands
                            where ((b.BrandId == brandId || brandId == 0))
                            orderby b.CategoryId,b.BrandName
                            select b).ToList();
 
-            return _brads;
+            return _brands;
         }
 
         public static Brand BrandCopy(Brand brand)
@@ -315,6 +332,52 @@ namespace BalajiTrader.Entities
             return _brandType;
         }
 
+        public static List<Units> GetUnits(int unitId = 0)
+        {
+            List<Units> _units = new List<Units>();
+
+            _units = (from u in Units
+                      where ((u.UnitId == unitId || unitId == 0))
+                      orderby u.UnitName
+                      select u).ToList();
+
+            return _units;
+        }
+
+        public static Units UnitCopy(Units unit)
+        {
+            Units _tmpunit = new Units
+            {
+                UnitId = unit.UnitId,
+                UnitName = unit.UnitName,
+                Unit = unit.Unit,
+                Status = unit.Status,
+                Created = unit.Created
+            };
+            return _tmpunit;
+        }
+
+        public static List<Units> GetUnitsFromList()
+        {
+            List<Units> _unitType = null;
+
+            #region Fiirs Rows  
+            Units _DefunitType = new Units
+            {
+                UnitId = Convert.ToInt32(0),
+                Unit = "--Select--"
+            };
+            #endregion
+
+            _unitType = (from u in Units
+                          where (u.Status == 1)
+                          orderby u.UnitName
+                          select u).ToList();
+
+            _unitType.Insert(0, _DefunitType);
+
+            return _unitType;
+        }
         #endregion
         #endregion
 
