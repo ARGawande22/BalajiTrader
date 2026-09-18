@@ -76,15 +76,15 @@ namespace BalajiTrader.Data
             }
         }
 
-        public bool AddUpdateSize(int sizeId, int categoryId, string SizeName, int unitId)
+        public bool AddUpdateSize(int sizeId, int categoryId, int unitId, string SizeName)
         {
             try
             {
                 SqlParameter[] parameters = new SqlParameter[] {
                     new SqlParameter("@sizeId",sizeId),
                     new SqlParameter("@categoryId",categoryId),
-                    new SqlParameter("@sizeName",SizeName),
                     new SqlParameter("@unitId",unitId),
+                    new SqlParameter("@sizeName",SizeName)
                 };
 
                 ExecuteNonQuery(StoreProcedures.AddUpdateSize, parameters);

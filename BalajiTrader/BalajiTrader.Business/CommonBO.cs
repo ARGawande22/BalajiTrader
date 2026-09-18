@@ -30,9 +30,9 @@ namespace BalajiTrader.Business
             return DAOFactory.CommonDAO.AddUpdateUnit(unitId, UnitName, Unit);
         }
 
-        public bool AddUpdateSize(int sizeId, int categoryId, string SizeName, int unitId)
+        public bool AddUpdateSize(int sizeId, int categoryId, int unitId, string SizeName)
         {
-            return DAOFactory.CommonDAO.AddUpdateSize(sizeId, categoryId, SizeName, unitId);
+            return DAOFactory.CommonDAO.AddUpdateSize(sizeId, categoryId, unitId, SizeName);
         }
 
         public DataSet GetCategories(int categoryId)

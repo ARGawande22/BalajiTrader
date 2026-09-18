@@ -15,7 +15,7 @@ namespace BalajiTrader.Business.Interface
 
         bool AddUpdateUnit(int unitId, string UnitName, string Unit);
 
-        bool AddUpdateSize(int sizeId, int categoryId, string SizeName, int unitId);
+        bool AddUpdateSize(int sizeId, int categoryId, int unitId, string SizeName);
 
         public DataSet GetCategories(int categoryId);
 

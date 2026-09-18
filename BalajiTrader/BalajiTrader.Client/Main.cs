@@ -61,6 +61,7 @@ namespace BalajiTrader.Client
             CommonProcess.GetAllCategories();
             CommonProcess.GetAllBrands();
             CommonProcess.GetAllUnits();
+            CommonProcess.GetAllSizes();
         }
         #endregion
 

@@ -25,6 +25,7 @@ namespace BalajiTrader.Entities
         public static Category _addCategory = null;
         public static Brand _addBrands = null;
         public static Units _addUnit = null;
+        public static Sizes _addSize = null;
         #endregion
 
         #region Prperties
@@ -65,6 +66,12 @@ namespace BalajiTrader.Entities
             get { return _addUnit; }
             set { _addUnit = value; }
         }
+
+        public static Sizes AddSize
+        {
+            get { return _addSize; }
+            set { _addSize = value; }
+        }
         #endregion
 
         #region Methods
@@ -84,9 +91,9 @@ namespace BalajiTrader.Entities
             return BOFactory.CommonBO.AddUpdateUnit(unitId, UnitName, Unit);
         }
 
-        public static bool AddUpdateSize(int sizeId, int categoryId, string SizeName, int unitId)
+        public static bool AddUpdateSize(int sizeId, int categoryId, int unitId, string SizeName)
         {
-            return BOFactory.CommonBO.AddUpdateSize(sizeId, categoryId, SizeName, unitId);
+            return BOFactory.CommonBO.AddUpdateSize(sizeId, categoryId, unitId, SizeName);
         }
         #endregion
 
@@ -180,7 +187,7 @@ namespace BalajiTrader.Entities
             }
         }
 
-        public static void GetAllSizes(int sizeId)
+        public static void GetAllSizes(int sizeId=0)
         {
             try
             {
@@ -197,8 +204,9 @@ namespace BalajiTrader.Entities
                             CategoryId = Validations.ConvertToInt(sizes.Rows[i]["CategoryId"].ToString()),
                             CategoryName = sizes.Rows[i]["CategoryName"].ToString(),
                             SizeName = sizes.Rows[i]["SizeName"].ToString(),
-                            UnitId = Validations.ConvertToInt(sizes.Rows[i]["UnitId"].ToString()),
+                            UnitId = Validations.ConvertToInt(sizes.Rows[i]["UnitId"].ToString()),                            
                             UnitName = sizes.Rows[i]["UnitName"].ToString(),
+                            Unit = sizes.Rows[i]["UnitSymbol"].ToString(),
                             Status = Validations.ConvertToInt(sizes.Rows[i]["IsActive"].ToString()),
                             Created = Validations.ConvertDateTime(sizes.Rows[i]["CreatedAt"].ToString())
                         };
@@ -377,6 +385,57 @@ namespace BalajiTrader.Entities
             _unitType.Insert(0, _DefunitType);
 
             return _unitType;
+        }
+
+        public static List<Sizes> GetSizes(int sizeId = 0)
+        {
+            List<Sizes> _sizes = new List<Sizes>();
+
+            _sizes = (from s in Sizes
+                      where ((s.SizeId == sizeId || sizeId == 0))
+                      orderby s.CategoryName,s.Unit
+                      select s).ToList();
+
+            return _sizes;
+        }
+
+        public static Sizes SizeCopy(Sizes size)
+        {
+            Sizes _tmpsize = new Sizes
+            {
+                SizeId = size.SizeId,
+                CategoryId=size.CategoryId,
+                CategoryName=size.CategoryName,
+                UnitId=size.UnitId,
+                UnitName = size.UnitName,
+                Unit = size.Unit,
+                SizeName = size.SizeName,
+                Status = size.Status,
+                Created = size.Created
+            };
+            return _tmpsize;
+        }
+
+        public static List<Sizes> GetSizesFromList()
+        {
+            List<Sizes> _sizeType = null;
+
+            #region Fiirs Rows  
+            Sizes _DefsizeType = new Sizes
+            {
+                SizeId = Convert.ToInt32(0),
+                SizeName = "--Select--"
+            };
+            #endregion
+
+            _sizeType = (from s in Sizes
+                         where (s.Status == 1)
+                         orderby s.SizeName
+                         select s).ToList();
+
+            _sizeType.Insert(0, _DefsizeType);
+
+            return _sizeType;
         }
         #endregion
         #endregion

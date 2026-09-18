@@ -107,5 +107,47 @@ namespace BalajiTrader.Entities
             return validationErrors;
         }
         #endregion
+
+
+
+        #region Validate Sizes
+        public ValidationErrors SizeValidation
+        {
+            get
+            {
+                ValidationErrors errors = ValidateSize();
+                return errors;
+            }
+        }
+
+        public ValidationErrors ValidateSize()
+        {
+            ValidationErrors validationErrors = new ValidationErrors();
+            Sizes _size = CommonProcess.AddSize;
+
+            //Category Details
+            #region Category Details
+            if (string.IsNullOrEmpty(_size.CategoryName))
+            {
+                ValidationError error = new ValidationError(Constant.Namekey, "Please Select the category", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (string.IsNullOrEmpty(_size.Unit))
+            {
+                ValidationError error = new ValidationError(Constant.Namekey1, "Please Select the unit", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (string.IsNullOrEmpty(_size.SizeName))
+            {
+                ValidationError error = new ValidationError(Constant.Namekey2, "Please enter the size Name", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+            #endregion
+
+            return validationErrors;
+        }
+        #endregion
     }
 }

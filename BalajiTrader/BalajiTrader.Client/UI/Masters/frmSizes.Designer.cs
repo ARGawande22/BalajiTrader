@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSizes));
             pnlHeaders = new Panel();
+            btnCancel = new Button();
             cmbUnits = new ComboBox();
             label2 = new Label();
             lblUnits = new Label();
@@ -44,10 +47,11 @@
             pnlGrid = new Panel();
             dgvSizes = new DataGridView();
             SrNo = new DataGridViewTextBoxColumn();
-            btnCancel = new Button();
+            validationerrors = new ErrorProvider(components);
             pnlHeaders.SuspendLayout();
             pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSizes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)validationerrors).BeginInit();
             SuspendLayout();
             // 
             // pnlHeaders
@@ -67,6 +71,21 @@
             pnlHeaders.Name = "pnlHeaders";
             pnlHeaders.Size = new Size(546, 163);
             pnlHeaders.TabIndex = 0;
+            // 
+            // btnCancel
+            // 
+            btnCancel.BackColor = Color.WhiteSmoke;
+            btnCancel.ForeColor = SystemColors.ActiveCaptionText;
+            btnCancel.Image = Properties.Resources.Exit;
+            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancel.Location = new Point(320, 122);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 30);
+            btnCancel.TabIndex = 77;
+            btnCancel.Text = "Clear";
+            btnCancel.TextAlign = ContentAlignment.MiddleRight;
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // cmbUnits
             // 
@@ -122,6 +141,7 @@
             btnSave.Text = "Save && Update";
             btnSave.TextAlign = ContentAlignment.MiddleRight;
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // label1
             // 
@@ -185,7 +205,7 @@
             dgvSizes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -207,6 +227,9 @@
             dgvSizes.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvSizes.Size = new Size(544, 173);
             dgvSizes.TabIndex = 4;
+            dgvSizes.CellClick += dgvSizes_CellClick;
+            dgvSizes.CellMouseEnter += dgvSizes_CellMouseEnter;
+            dgvSizes.DataError += dgvSizes_DataError;
             // 
             // SrNo
             // 
@@ -214,19 +237,11 @@
             SrNo.Name = "SrNo";
             SrNo.ReadOnly = true;
             // 
-            // btnCancel
+            // validationerrors
             // 
-            btnCancel.BackColor = Color.WhiteSmoke;
-            btnCancel.ForeColor = SystemColors.ActiveCaptionText;
-            btnCancel.Image = Properties.Resources.Exit;
-            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancel.Location = new Point(320, 122);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 30);
-            btnCancel.TabIndex = 77;
-            btnCancel.Text = "Clear";
-            btnCancel.TextAlign = ContentAlignment.MiddleRight;
-            btnCancel.UseVisualStyleBackColor = false;
+            validationerrors.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            validationerrors.ContainerControl = this;
+            validationerrors.Icon = (Icon)resources.GetObject("validationerrors.Icon");
             // 
             // frmSizes
             // 
@@ -245,10 +260,12 @@
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Brands";
+            Load += frmSizes_Load;
             pnlHeaders.ResumeLayout(false);
             pnlHeaders.PerformLayout();
             pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvSizes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)validationerrors).EndInit();
             ResumeLayout(false);
         }
 
@@ -268,5 +285,6 @@
         private Label label2;
         private Label lblUnits;
         private Button btnCancel;
+        private ErrorProvider validationerrors;
     }
 }

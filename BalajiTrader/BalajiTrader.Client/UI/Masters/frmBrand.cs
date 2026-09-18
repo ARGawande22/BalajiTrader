@@ -377,10 +377,10 @@ namespace BalajiTrader.Client.UI.Masters
                     return;
 
                 firstRowIndex = dgvBrands.FirstDisplayedScrollingRowIndex;
-                int categoryId = Validations.ConvertToInt(dgvBrands.Rows[rowIndex].Cells["BrandId"].Value.ToString());
+                int brandId = Validations.ConvertToInt(dgvBrands.Rows[rowIndex].Cells["BrandId"].Value.ToString());
                 string Status = isDisabled(rowIndex) ? "1" : "0";
 
-                if (CommonProcess.EnableDisableBrand(categoryId, Status))
+                if (CommonProcess.EnableDisableBrand(brandId, Status))
                 {
                     _message = String.Format("Brand {0} ", isDisabled(rowIndex) ? "Re-enable successfully...!" : "is disabled now..!");
                     MessageBox.Show(_message, Constant.title, MessageBoxButtons.OK, MessageBoxIcon.Information);

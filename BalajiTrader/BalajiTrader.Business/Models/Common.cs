@@ -163,6 +163,7 @@ namespace BalajiTrader.Business.Models
             private string _sizeName;
             private int _unitId;
             private string _unitName;
+            private string _unit;
             private int _status;
             private DateTime _created;
             #endregion
@@ -202,6 +203,12 @@ namespace BalajiTrader.Business.Models
             {
                 get { return _unitName; }
                 set { _unitName = value; }
+            }
+
+            public string Unit
+            {
+                get { return _unit; }
+                set { _unit = value; }
             }
 
             public int Status
