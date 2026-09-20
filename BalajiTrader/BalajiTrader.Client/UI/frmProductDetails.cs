@@ -5,6 +5,7 @@ using BalajiTrader.Client.Common;
 using BalajiTrader.Client.UI.Common;
 using BalajiTrader.Entities;
 using log4net;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,6 +64,7 @@ namespace BalajiTrader.Client.UI
                 return;
 
             refreshData();
+            SearchDetails();
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -208,7 +210,7 @@ namespace BalajiTrader.Client.UI
 
                     //Highlight the UserId & Password
                     row.Cells["ProductCode"].Style.Font = Fonts.DefaultBoldItalicFont;
-                    row.Cells["ProductCode"].Style.ForeColor = Color.Red;
+                    row.Cells["ProductCode"].Style.ForeColor = Color.SaddleBrown;
                 }
 
                 //Hide columns
@@ -225,7 +227,7 @@ namespace BalajiTrader.Client.UI
                 //Setting up Column width
                 column["SrNo"].Width = 45;
                 column["ProductCode"].Width = 130;
-                column["ProductName"].Width = dgvProductDetails.Rows.Count <= 15 ? 150 : 134;
+                column["ProductName"].Width = dgvProductDetails.Rows.Count < 15 ? 150 : 133;
                 column["CategoryName"].Width = 85;
                 column["BrandName"].Width = 80;
                 column["HSNCode"].Width = 80;
@@ -390,14 +392,28 @@ namespace BalajiTrader.Client.UI
                     return;
 
                 int ProductId = Validations.ConvertToInt(dgvProductDetails.Rows[rowIndex].Cells["ProductId"].Value.ToString());
-
-                //_event = "Edit";
-                //txtBrandName.Text = BrandName;
-                //cmbCategory.SelectedValue = CategoryId;
+                OpenUserForm(ProductId, "Edit");
             }
             catch (Exception ex) { log.Error("Error while editing brand details :" + ex.Message); }
         }
 
+        private void OpenUserForm(int ProductId, string Event)
+        {
+            firstRowIndex = dgvProductDetails.FirstDisplayedScrollingRowIndex;
+            Product _tmpProduct = new Product();
+            _tmpProduct = ProductProcess.GetProduct(ProductId);
+            _product = ProductProcess.ProductCopy(_tmpProduct);
+
+            frmAddProduct _frmAddProduct = new frmAddProduct(_product, Event);
+            _frmAddProduct.ShowDialog();
+
+            if (!_frmAddProduct.FStatus)
+                return;
+
+            refreshData();
+            dgvProductDetails.FirstDisplayedScrollingRowIndex = firstRowIndex;
+        }
+       
         private void EnableDisableProduct()
         {
             try

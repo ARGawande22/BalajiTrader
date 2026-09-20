@@ -104,6 +104,17 @@ namespace BalajiTrader.Entities
             return _products;
         }
 
+        public static Product GetProduct(int ProductId)
+        {
+            Product _product = null;
+            try
+            {
+                _product = (Products.FirstOrDefault(p => p.ProductId == ProductId));
+            }
+            catch (Exception ex) { log.Error(String.Format("Error getting the product details for {0} \n{1}", ProductId, ex.Message)); }
+            return _product;
+        }
+
         public static Product ProductCopy(Product product)
         {
             Product _tmpProduct = new Product

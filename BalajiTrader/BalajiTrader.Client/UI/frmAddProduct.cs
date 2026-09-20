@@ -65,12 +65,12 @@ namespace BalajiTrader.Client.UI
         {
             if (Save())
             {
+                FStatus = true;
                 if (_event == "New")
                 {
                     Clear();
                     return;
                 }
-                FStatus = true;
                 this.Close();
             }
         }
