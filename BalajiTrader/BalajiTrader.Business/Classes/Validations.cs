@@ -82,7 +82,7 @@ namespace BalajiTrader.Business.Classes
         /// <returns></returns>
         public static bool ValidatePincode(string PinCode)
         {
-            _regex = new Regex(Constant.Pincode);
+            _regex = new Regex(Constant.PinCode);
             return _regex.IsMatch(PinCode);
         }
 

@@ -58,6 +58,7 @@
             tsBrands = new ToolStripMenuItem();
             tsUnits = new ToolStripMenuItem();
             tsSizes = new ToolStripMenuItem();
+            tsProducts = new ToolStripMenuItem();
             reportsToolStripMenuItem = new ToolStripMenuItem();
             toolsToolStripMenuItem = new ToolStripMenuItem();
             pnlMain.SuspendLayout();
@@ -201,6 +202,7 @@
             lblProducts.Size = new Size(130, 17);
             lblProducts.TabIndex = 18;
             lblProducts.Text = "Products / Services";
+            lblProducts.Click += lblProducts_Click;
             // 
             // lblQuatation
             // 
@@ -357,7 +359,7 @@
             // 
             // tsMaster
             // 
-            tsMaster.DropDownItems.AddRange(new ToolStripItem[] { tsCatagory, tsBrands, tsUnits, tsSizes });
+            tsMaster.DropDownItems.AddRange(new ToolStripItem[] { tsCatagory, tsBrands, tsUnits, tsSizes, tsProducts });
             tsMaster.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsMaster.ForeColor = Color.SteelBlue;
             tsMaster.Name = "tsMaster";
@@ -369,8 +371,8 @@
             tsCatagory.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsCatagory.ForeColor = Color.SteelBlue;
             tsCatagory.Name = "tsCatagory";
-            tsCatagory.Size = new Size(129, 22);
-            tsCatagory.Text = "Categories";
+            tsCatagory.Size = new Size(180, 22);
+            tsCatagory.Text = "Add Categories";
             tsCatagory.Click += tsCategory_Click;
             // 
             // tsBrands
@@ -378,8 +380,8 @@
             tsBrands.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsBrands.ForeColor = Color.SteelBlue;
             tsBrands.Name = "tsBrands";
-            tsBrands.Size = new Size(129, 22);
-            tsBrands.Text = "Brands";
+            tsBrands.Size = new Size(180, 22);
+            tsBrands.Text = "Add Brands";
             tsBrands.Click += tsBrands_Click;
             // 
             // tsUnits
@@ -387,8 +389,8 @@
             tsUnits.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsUnits.ForeColor = Color.SteelBlue;
             tsUnits.Name = "tsUnits";
-            tsUnits.Size = new Size(129, 22);
-            tsUnits.Text = "Units";
+            tsUnits.Size = new Size(180, 22);
+            tsUnits.Text = "Add Units";
             tsUnits.Click += tsUnits_Click;
             // 
             // tsSizes
@@ -396,9 +398,17 @@
             tsSizes.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsSizes.ForeColor = Color.SteelBlue;
             tsSizes.Name = "tsSizes";
-            tsSizes.Size = new Size(129, 22);
-            tsSizes.Text = "Sizes";
+            tsSizes.Size = new Size(180, 22);
+            tsSizes.Text = "Add Sizes";
             tsSizes.Click += tsSizes_Click;
+            // 
+            // tsProducts
+            // 
+            tsProducts.ForeColor = Color.SteelBlue;
+            tsProducts.Name = "tsProducts";
+            tsProducts.Size = new Size(180, 22);
+            tsProducts.Text = "Add Products";
+            tsProducts.Click += tsProducts_Click;
             // 
             // reportsToolStripMenuItem
             // 
@@ -487,5 +497,6 @@
         private ToolStripMenuItem tsBrands;
         private ToolStripMenuItem tsUnits;
         private ToolStripMenuItem tsSizes;
+        private ToolStripMenuItem tsProducts;
     }
 }

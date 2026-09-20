@@ -74,7 +74,7 @@ namespace BalajiTrader.Client.UI.Masters
                 }
                 else
                 {
-                    MessageBox.Show(string.Format("Error {0} unit details..! \n{1}", _event == "New" ? "inserting" : "updating", Constant.assistsnce),
+                    MessageBox.Show(string.Format("Error {0} unit details..! \n{1}", _event == "New" ? "inserting" : "updating", Constant.assistance),
                         Constant.title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     FStatus = false;
                 }
@@ -107,8 +107,8 @@ namespace BalajiTrader.Client.UI.Masters
             CommonProcess.AddUnit = _unit;
             ValidationErrors validateErrors = _process.UnitValidation;
 
-            validationerrors.SetError(txtUnitName, validateErrors.GetMessageByProperty(Constant.Namekey));
-            validationerrors.SetError(txtUnit, validateErrors.GetMessageByProperty(Constant.Namekey1));
+            validationerrors.SetError(txtUnitName, validateErrors.GetMessageByProperty(Constant.UnitName));
+            validationerrors.SetError(txtUnit, validateErrors.GetMessageByProperty(Constant.Unit));
 
             if (validateErrors.Count == 0)
                 return true;
@@ -165,7 +165,7 @@ namespace BalajiTrader.Client.UI.Masters
             {
                 GridValidations();
                 AddButtonsToGrid();
-                RemoveDisabledClientButtons();
+                RemoveDisabledUnitButtons();
             }
             catch (Exception ex) { log.Error("Error while binding data to grid " + ex.Message); }
         }
@@ -259,7 +259,7 @@ namespace BalajiTrader.Client.UI.Masters
             }
         }
 
-        private void RemoveDisabledClientButtons()
+        private void RemoveDisabledUnitButtons()
         {
             try
             {

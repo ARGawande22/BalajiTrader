@@ -11,28 +11,41 @@ namespace BalajiTrader.Business.Classes
 {
     public class Constant
     {
-        public static readonly string assistsnce = ConfigurationManager.AppSettings.Get("AssistanceMessage");
+        public static readonly string assistance = ConfigurationManager.AppSettings.Get("AssistanceMessage");
         public static readonly string title = ConfigurationManager.AppSettings.Get("ConnectMessageTitle");
 
         public const string DateFormat = "dd/MM/yyyy";
         public const string DefaultDateFormat = "--/--/----";
         public const string Email = @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$";
         public const string MobileNo = @"[0-9]{10}";
-        public const string Pincode = @"[0-9]{6}";
+        public const string PinCode = @"[0-9]{6}";
         public const string GSTNo = @"\d{2}[A-Z]{5}\d{4}[A-Z]{1}\d[Z]{1}[A-Z\d]{1}";
 
-        public const string Namekey = "Name";
-        public const string Codekey = "Code";
+        public const string NameKey = "Name";
+        public const string CodeKey = "Code";
         public const string EmailKey = "Email";
-        public const string Addrkey = "Address";
-        public const string PinKey = "Pincode";
+        public const string AddressKey = "Address";
+        public const string PinKey = "PinCode";
         public const string GSTKey = "GSTNo";
        
         public const char PasswordMask = '*';
         public const char PasswordBullet = '•';
         public const char PasswordDash = '-';
 
-        public const string Namekey1 = "Name1";
-        public const string Namekey2 = "Name2";
+
+        public const string CategoryId = "CategoryId";
+        public const string Category = "Category";
+        public const string BrandId = "BrandId";
+        public const string BrandName = "BrandName";
+        public const string SizeId = "SizeId";
+        public const string SizeName = "SizeName";
+        public const string UnitId = "UnitId";
+        public const string UnitName = "UnitName";
+        public const string Unit = "Unit";
+
+        public const string ProductId = "ProductId";
+        public const string ProductName = "ProductName";
+        public const string ProductCode = "ProductCode";
+
     }
 }

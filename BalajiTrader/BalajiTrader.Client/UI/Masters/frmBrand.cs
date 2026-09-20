@@ -69,7 +69,7 @@ namespace BalajiTrader.Client.UI.Masters
                 }
                 else
                 {
-                    MessageBox.Show(string.Format("Error {0} brand details..! \n{1}", _event == "New" ? "inserting" : "updating", Constant.assistsnce),
+                    MessageBox.Show(string.Format("Error {0} brand details..! \n{1}", _event == "New" ? "inserting" : "updating", Constant.assistance),
                         Constant.title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     FStatus = false;
                 }
@@ -112,8 +112,8 @@ namespace BalajiTrader.Client.UI.Masters
             CommonProcess.AddBrands = _brand;
             ValidationErrors validateErrors = _process.BrandValidation;
 
-            validationerrors.SetError(cmbCategory, validateErrors.GetMessageByProperty(Constant.Namekey));
-            validationerrors.SetError(txtBrandName, validateErrors.GetMessageByProperty(Constant.Namekey1));
+            validationerrors.SetError(cmbCategory, validateErrors.GetMessageByProperty(Constant.Category));
+            validationerrors.SetError(txtBrandName, validateErrors.GetMessageByProperty(Constant.BrandName));
 
             if (validateErrors.Count == 0)
                 return true;
@@ -179,7 +179,7 @@ namespace BalajiTrader.Client.UI.Masters
             {
                 GridValidations();
                 AddButtonsToGrid();
-                RemoveDisabledClientButtons();
+                RemoveDisabledBrandButtons();
             }
             catch (Exception ex) { log.Error("Error while binding data to grid " + ex.Message); }
         }
@@ -273,7 +273,7 @@ namespace BalajiTrader.Client.UI.Masters
             }
         }
 
-        private void RemoveDisabledClientButtons()
+        private void RemoveDisabledBrandButtons()
         {
             try
             {

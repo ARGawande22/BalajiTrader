@@ -79,7 +79,7 @@ namespace BalajiTrader.Client.UI.Masters
                 }
                 else
                 {
-                    MessageBox.Show(string.Format("Error {0} categories details..! \n{1}", _event == "New" ? "inserting" : "updating", Constant.assistsnce),
+                    MessageBox.Show(string.Format("Error {0} categories details..! \n{1}", _event == "New" ? "inserting" : "updating", Constant.assistance),
                         Constant.title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     FStatus = false;
                 }
@@ -108,7 +108,7 @@ namespace BalajiTrader.Client.UI.Masters
             CommonProcess.AddCategory = _category;
             ValidationErrors validateErrors = _process.CategoryValidation;
 
-            validationerrors.SetError(txtCategoryName, validateErrors.GetMessageByProperty(Constant.Namekey));
+            validationerrors.SetError(txtCategoryName, validateErrors.GetMessageByProperty(Constant.Category));
 
             if (validateErrors.Count == 0)
                 return true;
@@ -175,7 +175,7 @@ namespace BalajiTrader.Client.UI.Masters
             {
                 GridValidations();
                 AddButtonsToGrid();
-                RemoveDisabledClientButtons();
+                RemoveDisabledCategoryButtons();
             }
             catch (Exception ex) { log.Error("Error while binding data to grid " + ex.Message); }
         }
@@ -272,7 +272,7 @@ namespace BalajiTrader.Client.UI.Masters
             }
         }
 
-        private void RemoveDisabledClientButtons()
+        private void RemoveDisabledCategoryButtons()
         {
             try
             {

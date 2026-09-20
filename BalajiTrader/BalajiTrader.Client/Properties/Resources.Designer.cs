@@ -113,6 +113,16 @@ namespace BalajiTrader.Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plusb {
+            get {
+                object obj = ResourceManager.GetObject("plusb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap purchase_report {
             get {
                 object obj = ResourceManager.GetObject("purchase_report", resourceCulture);

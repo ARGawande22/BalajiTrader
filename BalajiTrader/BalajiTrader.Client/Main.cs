@@ -1,4 +1,6 @@
-﻿using BalajiTrader.Client.UI.Masters;
+﻿using BalajiTrader.Business.Models;
+using BalajiTrader.Client.UI;
+using BalajiTrader.Client.UI.Masters;
 using BalajiTrader.Entities;
 using System;
 using System.Collections.Generic;
@@ -29,7 +31,7 @@ namespace BalajiTrader.Client
         {
             Application.Exit();
         }
-      
+
         private void tsCategory_Click(object sender, EventArgs e)
         {
             frmCategory _frmCatagory = new frmCategory();
@@ -54,6 +56,18 @@ namespace BalajiTrader.Client
             _frmSizes.ShowDialog();
         }
 
+        private void lblProducts_Click(object sender, EventArgs e)
+        {
+            frmProductDetails _frmProductDetails = new frmProductDetails();
+            _frmProductDetails.ShowDialog();            
+        }
+
+        private void tsProducts_Click(object sender, EventArgs e)
+        {
+            Product product = null;
+            frmAddProduct _frmAddProduct = new frmAddProduct(product, "New");
+            _frmAddProduct.ShowDialog();
+        }
 
         #region Methods
         private void RefreshData()
@@ -65,5 +79,6 @@ namespace BalajiTrader.Client
         }
         #endregion
 
+        
     }
 }

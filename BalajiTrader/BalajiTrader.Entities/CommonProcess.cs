@@ -318,7 +318,7 @@ namespace BalajiTrader.Entities
             return _tmpcategory;
         }
 
-        public static List<Brand> GetBrandsFromList()
+        public static List<Brand> GetBrandsFromList(int CategoryId)
         {
             List<Brand> _brandType = null;
 
@@ -331,7 +331,7 @@ namespace BalajiTrader.Entities
             #endregion
 
             _brandType = (from b in Brands
-                             where (b.Status == 1)
+                             where (b.Status == 1 && (b.CategoryId==CategoryId || CategoryId==0))
                              orderby b.BrandName
                              select b).ToList();
 
@@ -387,6 +387,19 @@ namespace BalajiTrader.Entities
             return _unitType;
         }
 
+        public static Units GetUnitBySizeId(int sizeId)
+        {
+            Units _unit = new Units();
+
+            _unit = (from s in Sizes
+                     join u in Units on s.UnitId equals u.UnitId
+                     where s.SizeId == sizeId
+                     orderby u.UnitName
+                     select u).FirstOrDefault();
+
+            return _unit;
+        }
+
         public static List<Sizes> GetSizes(int sizeId = 0)
         {
             List<Sizes> _sizes = new List<Sizes>();
@@ -416,7 +429,7 @@ namespace BalajiTrader.Entities
             return _tmpsize;
         }
 
-        public static List<Sizes> GetSizesFromList()
+        public static List<Sizes> GetSizesFromList(int CategoryId)
         {
             List<Sizes> _sizeType = null;
 
@@ -429,7 +442,7 @@ namespace BalajiTrader.Entities
             #endregion
 
             _sizeType = (from s in Sizes
-                         where (s.Status == 1)
+                         where (s.Status == 1 && (s.CategoryId==CategoryId))
                          orderby s.SizeName
                          select s).ToList();
 

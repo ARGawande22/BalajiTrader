@@ -1,4 +1,5 @@
 ﻿using BalajiTrader.Business.Classes;
+using BalajiTrader.Business.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace BalajiTrader.Entities
             #region Category Details
             if (string.IsNullOrEmpty(_category.CategoryName))
             {
-                ValidationError error = new ValidationError(Constant.Namekey, "Please enter the category name", ValidationErrorTypes.Warning);
+                ValidationError error = new ValidationError(Constant.Category, "Please enter the category name", ValidationErrorTypes.Warning);
                 validationErrors.Add(error);
             }
             #endregion
@@ -59,13 +60,13 @@ namespace BalajiTrader.Entities
             #region Category Details
             if (string.IsNullOrEmpty(_brand.CategoryName))
             {
-                ValidationError error = new ValidationError(Constant.Namekey, "Please Select the category", ValidationErrorTypes.Warning);
+                ValidationError error = new ValidationError(Constant.Category, "Please Select the category", ValidationErrorTypes.Warning);
                 validationErrors.Add(error);
             }
 
             if (string.IsNullOrEmpty(_brand.BrandName))
             {
-                ValidationError error = new ValidationError(Constant.Namekey1, "Please enter the Brand Name", ValidationErrorTypes.Warning);
+                ValidationError error = new ValidationError(Constant.BrandName, "Please enter the Brand Name", ValidationErrorTypes.Warning);
                 validationErrors.Add(error);
             }
             #endregion
@@ -93,13 +94,13 @@ namespace BalajiTrader.Entities
             #region Unit Details
             if (string.IsNullOrEmpty(_unit.UnitName))
             {
-                ValidationError error = new ValidationError(Constant.Namekey, "Please enter the unit name", ValidationErrorTypes.Warning);
+                ValidationError error = new ValidationError(Constant.UnitName, "Please enter the unit name", ValidationErrorTypes.Warning);
                 validationErrors.Add(error);
             }
 
             if (string.IsNullOrEmpty(_unit.Unit))
             {
-                ValidationError error = new ValidationError(Constant.Namekey1, "Please enter the unit", ValidationErrorTypes.Warning);
+                ValidationError error = new ValidationError(Constant.Unit, "Please enter the unit", ValidationErrorTypes.Warning);
                 validationErrors.Add(error);
             }
             #endregion
@@ -107,8 +108,6 @@ namespace BalajiTrader.Entities
             return validationErrors;
         }
         #endregion
-
-
 
         #region Validate Sizes
         public ValidationErrors SizeValidation
@@ -129,19 +128,19 @@ namespace BalajiTrader.Entities
             #region Category Details
             if (string.IsNullOrEmpty(_size.CategoryName))
             {
-                ValidationError error = new ValidationError(Constant.Namekey, "Please Select the category", ValidationErrorTypes.Warning);
+                ValidationError error = new ValidationError(Constant.Category, "Please Select the category", ValidationErrorTypes.Warning);
                 validationErrors.Add(error);
             }
 
             if (string.IsNullOrEmpty(_size.Unit))
             {
-                ValidationError error = new ValidationError(Constant.Namekey1, "Please Select the unit", ValidationErrorTypes.Warning);
+                ValidationError error = new ValidationError(Constant.Unit, "Please Select the unit", ValidationErrorTypes.Warning);
                 validationErrors.Add(error);
             }
 
             if (string.IsNullOrEmpty(_size.SizeName))
             {
-                ValidationError error = new ValidationError(Constant.Namekey2, "Please enter the size Name", ValidationErrorTypes.Warning);
+                ValidationError error = new ValidationError(Constant.SizeName, "Please enter the size Name", ValidationErrorTypes.Warning);
                 validationErrors.Add(error);
             }
             #endregion
@@ -149,5 +148,63 @@ namespace BalajiTrader.Entities
             return validationErrors;
         }
         #endregion
+
+        #region Validate Sizes
+        public ValidationErrors ProductValidation
+        {
+            get
+            {
+                ValidationErrors errors = ValidateProduct();
+                return errors;
+            }
+        }
+
+        public ValidationErrors ValidateProduct()
+        {
+            ValidationErrors validationErrors = new ValidationErrors();
+            Product _product = ProductProcess.AddProduct;
+
+            //Product Details
+            #region Product Details
+            if (string.IsNullOrEmpty(_product.ProductCode))
+            {                
+                ValidationError error = new ValidationError(Constant.ProductCode, "Please enter the product code", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+            //else if (true)
+            //{
+            //    ValidationError error = new ValidationError(Constant.ProductCode, "Product code is al-ready present", ValidationErrorTypes.Warning);
+            //    validationErrors.Add(error);
+            //}
+
+            if (string.IsNullOrEmpty(_product.ProductName))
+            {
+                ValidationError error = new ValidationError(Constant.ProductName, "Please enter the product name", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (string.IsNullOrEmpty(_product.CategoryName))
+            {
+                ValidationError error = new ValidationError(Constant.Category, "Please Select the category", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (string.IsNullOrEmpty(_product.BrandName))
+            {
+                ValidationError error = new ValidationError(Constant.BrandName, "Please Select the Brand", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (string.IsNullOrEmpty(_product.Unit))
+            {
+                ValidationError error = new ValidationError(Constant.Unit, "Please Select the unit", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+            #endregion
+
+            return validationErrors;
+        }
+        #endregion
+
     }
 }

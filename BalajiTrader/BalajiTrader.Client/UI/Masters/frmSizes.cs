@@ -77,7 +77,7 @@ namespace BalajiTrader.Client.UI.Masters
                 }
                 else
                 {
-                    MessageBox.Show(string.Format("Error {0} size details..! \n{1}", _event == "New" ? "inserting" : "updating", Constant.assistsnce),
+                    MessageBox.Show(string.Format("Error {0} size details..! \n{1}", _event == "New" ? "inserting" : "updating", Constant.assistance),
                         Constant.title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     FStatus = false;
                 }
@@ -131,9 +131,9 @@ namespace BalajiTrader.Client.UI.Masters
             CommonProcess.AddSize = _size;
             ValidationErrors validateErrors = _process.SizeValidation;
 
-            validationerrors.SetError(cmbCategory, validateErrors.GetMessageByProperty(Constant.Namekey));
-            validationerrors.SetError(cmbUnits, validateErrors.GetMessageByProperty(Constant.Namekey1));
-            validationerrors.SetError(txtSizename, validateErrors.GetMessageByProperty(Constant.Namekey2));
+            validationerrors.SetError(cmbCategory, validateErrors.GetMessageByProperty(Constant.Category));
+            validationerrors.SetError(cmbUnits, validateErrors.GetMessageByProperty(Constant.Unit));
+            validationerrors.SetError(txtSizename, validateErrors.GetMessageByProperty(Constant.SizeName));
 
             if (validateErrors.Count == 0)
                 return true;
@@ -194,7 +194,7 @@ namespace BalajiTrader.Client.UI.Masters
             {
                 GridValidations();
                 AddButtonsToGrid();
-                RemoveDisabledClientButtons();
+                RemoveDisabledSizeButtons();
             }
             catch (Exception ex) { log.Error("Error while binding data to grid " + ex.Message); }
         }
@@ -294,7 +294,7 @@ namespace BalajiTrader.Client.UI.Masters
             }
         }
 
-        private void RemoveDisabledClientButtons()
+        private void RemoveDisabledSizeButtons()
         {
             try
             {
