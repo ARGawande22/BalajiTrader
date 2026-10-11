@@ -3,6 +3,7 @@ using BalajiTrader.Business.Classes;
 using BalajiTrader.Business.Models;
 using BalajiTrader.Client.Common;
 using BalajiTrader.Client.UI.Common;
+using BalajiTrader.Client.UI.UserControls;
 using BalajiTrader.Entities;
 using log4net;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -30,6 +31,8 @@ namespace BalajiTrader.Client.UI
 
         private int rowIndex, columnIndex, firstRowIndex = 0;
         string _message = string.Empty;
+
+        private CancellationTokenSource _loadProductCts;
         #endregion
 
         public frmProductDetails()
@@ -41,6 +44,8 @@ namespace BalajiTrader.Client.UI
 
         protected override void OnEscapePressed()
         {
+            _loadProductCts?.Cancel();
+            LoaderGridAnimated.Hide(pnlGrid);
             Close();
         }
 
@@ -54,6 +59,12 @@ namespace BalajiTrader.Client.UI
 
             isInitializing = false;
         }
+
+        private void frmProductDetails_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _loadProductCts?.Cancel();
+        }
+
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             Product product = null;
@@ -105,7 +116,6 @@ namespace BalajiTrader.Client.UI
         }
         #endregion
 
-
         #region Methods
         private void BindComboBox()
         {
@@ -119,23 +129,58 @@ namespace BalajiTrader.Client.UI
             cmbCategory.ValueMember = "CategoryId";
         }
 
-        private void refreshData()
+        private async void refreshData()
         {
-            ProductProcess.GetAllProduct(0);
+            _loadProductCts?.Cancel();
+            _loadProductCts = new CancellationTokenSource();
+            var Token = _loadProductCts.Token;
+            try
+            {
+                
 
-            BindProductDetails();
+                LoaderGridAnimated.Show(pnlGrid, "Fetching products details...", Color.LightSteelBlue); //Only with SteelBlue Shadow Message with Animation
+                // Simulate DB call
+                await Task.Run(() =>
+                {
+                    Token.ThrowIfCancellationRequested();
+                    ProductProcess.GetAllProduct(0);
+                }, Token);
+
+                // VERY IMPORTANT
+                if (Token.IsCancellationRequested || IsDisposed)
+                    return;
+
+                LoaderGridAnimated.UpdateMessage("Binding products details to grid...");
+
+                await BindProductDetails();
+
+                LoaderGridAnimated.Hide(pnlGrid);
+
+
+            }
+            catch (OperationCanceledException)
+            {
+                // ✔ Normal cancellation — no error
+                LoaderGridAnimated.Hide(pnlGrid);
+            }
+            catch (Exception ex) { log.Error("Error loading voucher details " + ex.Message); }
+            
         }
 
-        public void SearchDetails()
+        public async void SearchDetails()
         {
             _categoryId = cmbCategory.SelectedIndex > 0 ? Convert.ToInt32(cmbCategory.SelectedValue.ToString()) : 0;
             if (_categoryId > 0)
                 _brandId = cmbBrand.SelectedIndex > 0 ? Convert.ToInt32(cmbBrand.SelectedValue.ToString()) : 0;
 
-            BindProductDetails();
+            LoaderGridAnimated.Show(pnlGrid, "Searching products details for search criteria...", Color.LightSteelBlue); //Only with SteelBlue Shadow Message with Animation
+
+            await BindProductDetails();
+
+            LoaderGridAnimated.Hide(pnlGrid);
         }
 
-        private void BindProductDetails()
+        private async Task BindProductDetails()
         {
             List<Product> _tmpProducts = new List<Product>();
             _tmpProducts = ProductProcess.GetProducts(_categoryId, _brandId);
@@ -148,13 +193,13 @@ namespace BalajiTrader.Client.UI
 
             if (_products.Count <= 0)
             {
-                //stsMessage.Visible = true;
+                stsMessage.Visible = true;
                 dgvProductDetails.Visible = false;
-                //stsMessage.DisplayText = "Data not found for 🔎 search criteria...!";
+                stsMessage.DisplayText = "Data not found for 🔎 search criteria...!";
             }
             else
             {
-                //stsMessage.Visible = false;
+                stsMessage.Visible = false;
                 dgvProductDetails.Visible = true;
             }
 
@@ -413,7 +458,7 @@ namespace BalajiTrader.Client.UI
             refreshData();
             dgvProductDetails.FirstDisplayedScrollingRowIndex = firstRowIndex;
         }
-       
+
         private void EnableDisableProduct()
         {
             try
@@ -446,6 +491,6 @@ namespace BalajiTrader.Client.UI
         #endregion
         #endregion
 
-
+        
     }
 }

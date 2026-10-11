@@ -59,7 +59,7 @@ namespace BalajiTrader.Client
         private void lblProducts_Click(object sender, EventArgs e)
         {
             frmProductDetails _frmProductDetails = new frmProductDetails();
-            _frmProductDetails.ShowDialog();            
+            _frmProductDetails.ShowDialog();
         }
 
         private void tsProducts_Click(object sender, EventArgs e)
@@ -67,6 +67,18 @@ namespace BalajiTrader.Client
             Product product = null;
             frmAddProduct _frmAddProduct = new frmAddProduct(product, "New");
             _frmAddProduct.ShowDialog();
+        }
+
+        private void lblPricings_Click(object sender, EventArgs e)
+        {
+            frmPricingDetails _frmPricingDetails = new frmPricingDetails();
+            _frmPricingDetails.ShowDialog();
+        }
+
+        private void lblShopDetails_Click(object sender, EventArgs e)
+        {
+            frmShopDetails _frmShopDetails = new frmShopDetails();
+            _frmShopDetails.ShowDialog();
         }
 
         #region Methods
@@ -78,6 +90,8 @@ namespace BalajiTrader.Client
             CommonProcess.GetAllSizes();
         }
         #endregion
+
+
 
         
     }

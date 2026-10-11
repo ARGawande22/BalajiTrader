@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             pnlMain = new Panel();
             pnlGrid = new Panel();
+            stsMessage = new UserControls.Status();
             dgvProductDetails = new DataGridView();
             SrNo = new DataGridViewTextBoxColumn();
             pnHeaders = new Panel();
@@ -61,30 +62,42 @@
             // 
             pnlGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlGrid.BorderStyle = BorderStyle.FixedSingle;
+            pnlGrid.Controls.Add(stsMessage);
             pnlGrid.Controls.Add(dgvProductDetails);
             pnlGrid.Location = new Point(12, 62);
             pnlGrid.Name = "pnlGrid";
             pnlGrid.Size = new Size(789, 394);
-            pnlGrid.TabIndex = 2;
+            pnlGrid.TabIndex = 7;
+            // 
+            // stsMessage
+            // 
+            stsMessage.BackColor = Color.White;
+            stsMessage.DisplayText = "Data not found for search criteria...!";
+            stsMessage.Location = new Point(241, 104);
+            stsMessage.MaximumSize = new Size(305, 183);
+            stsMessage.MinimumSize = new Size(305, 183);
+            stsMessage.Name = "stsMessage";
+            stsMessage.Size = new Size(305, 183);
+            stsMessage.TabIndex = 8;
             // 
             // dgvProductDetails
             // 
             dgvProductDetails.AllowUserToAddRows = false;
             dgvProductDetails.AllowUserToResizeColumns = false;
             dgvProductDetails.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.Azure;
-            dgvProductDetails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = Color.Azure;
+            dgvProductDetails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvProductDetails.BackgroundColor = Color.White;
             dgvProductDetails.BorderStyle = BorderStyle.None;
             dgvProductDetails.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvProductDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.SteelBlue;
+            dataGridViewCellStyle5.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvProductDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvProductDetails.ColumnHeadersHeight = 35;
             dgvProductDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvProductDetails.Columns.AddRange(new DataGridViewColumn[] { SrNo });
@@ -96,8 +109,8 @@
             dgvProductDetails.Name = "dgvProductDetails";
             dgvProductDetails.ReadOnly = true;
             dgvProductDetails.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionBackColor = Color.LightSkyBlue;
-            dgvProductDetails.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.SelectionBackColor = Color.LightSkyBlue;
+            dgvProductDetails.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dgvProductDetails.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvProductDetails.Size = new Size(787, 392);
             dgvProductDetails.TabIndex = 1;
@@ -132,7 +145,7 @@
             cmbBrand.Location = new Point(404, 10);
             cmbBrand.Name = "cmbBrand";
             cmbBrand.Size = new Size(186, 26);
-            cmbBrand.TabIndex = 67;
+            cmbBrand.TabIndex = 5;
             cmbBrand.SelectedIndexChanged += cmbCommon_SelectedIndexChanged;
             // 
             // lblBrand
@@ -143,7 +156,7 @@
             lblBrand.Location = new Point(338, 13);
             lblBrand.Name = "lblBrand";
             lblBrand.Size = new Size(51, 18);
-            lblBrand.TabIndex = 66;
+            lblBrand.TabIndex = 4;
             lblBrand.Text = "Brand :";
             // 
             // cmbCategory
@@ -154,7 +167,7 @@
             cmbCategory.Location = new Point(113, 10);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(186, 26);
-            cmbCategory.TabIndex = 64;
+            cmbCategory.TabIndex = 3;
             cmbCategory.SelectedIndexChanged += cmbCategory_SelectedIndexChanged;
             // 
             // btnAddUser
@@ -167,7 +180,7 @@
             btnAddUser.Location = new Point(658, 6);
             btnAddUser.Name = "btnAddUser";
             btnAddUser.Size = new Size(126, 32);
-            btnAddUser.TabIndex = 21;
+            btnAddUser.TabIndex = 6;
             btnAddUser.Text = "Add New Product";
             btnAddUser.TextAlign = ContentAlignment.MiddleRight;
             btnAddUser.UseVisualStyleBackColor = false;
@@ -181,7 +194,7 @@
             lblCategory.Location = new Point(19, 13);
             lblCategory.Name = "lblCategory";
             lblCategory.Size = new Size(70, 18);
-            lblCategory.TabIndex = 63;
+            lblCategory.TabIndex = 2;
             lblCategory.Text = "Category :";
             // 
             // frmProductDetails
@@ -200,6 +213,7 @@
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Product Details";
+            FormClosing += frmProductDetails_FormClosing;
             Load += frmProductDetails_Load;
             pnlMain.ResumeLayout(false);
             pnlGrid.ResumeLayout(false);
@@ -221,5 +235,6 @@
         private ComboBox cmbBrand;
         private Label lblBrand;
         private DataGridViewTextBoxColumn SrNo;
+        private UserControls.Status stsMessage;
     }
 }

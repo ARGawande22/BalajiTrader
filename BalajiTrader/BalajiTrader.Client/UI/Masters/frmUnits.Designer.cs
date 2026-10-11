@@ -77,7 +77,7 @@
             btnCancel.Location = new Point(332, 88);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 30);
-            btnCancel.TabIndex = 77;
+            btnCancel.TabIndex = 8;
             btnCancel.Text = "Clear";
             btnCancel.TextAlign = ContentAlignment.MiddleRight;
             btnCancel.UseVisualStyleBackColor = false;
@@ -88,8 +88,9 @@
             txtUnit.Font = new Font("Calibri", 12F);
             txtUnit.Location = new Point(189, 51);
             txtUnit.Name = "txtUnit";
+            txtUnit.PlaceholderText = "Enter unit";
             txtUnit.Size = new Size(137, 27);
-            txtUnit.TabIndex = 66;
+            txtUnit.TabIndex = 6;
             // 
             // btnSave
             // 
@@ -101,7 +102,7 @@
             btnSave.Location = new Point(189, 88);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(137, 32);
-            btnSave.TabIndex = 65;
+            btnSave.TabIndex = 7;
             btnSave.Text = "Save && Update";
             btnSave.TextAlign = ContentAlignment.MiddleRight;
             btnSave.UseVisualStyleBackColor = false;
@@ -112,8 +113,9 @@
             txtUnitName.Font = new Font("Calibri", 12F);
             txtUnitName.Location = new Point(189, 18);
             txtUnitName.Name = "txtUnitName";
+            txtUnitName.PlaceholderText = "Enter unit name";
             txtUnitName.Size = new Size(218, 27);
-            txtUnitName.TabIndex = 45;
+            txtUnitName.TabIndex = 3;
             // 
             // label2
             // 
@@ -122,7 +124,7 @@
             label2.Location = new Point(117, 60);
             label2.Name = "label2";
             label2.Size = new Size(15, 18);
-            label2.TabIndex = 43;
+            label2.TabIndex = 5;
             label2.Text = "*";
             // 
             // label7
@@ -132,7 +134,7 @@
             label7.Location = new Point(159, 18);
             label7.Name = "label7";
             label7.Size = new Size(15, 18);
-            label7.TabIndex = 42;
+            label7.TabIndex = 2;
             label7.Text = "*";
             // 
             // lblUnit
@@ -142,7 +144,7 @@
             lblUnit.Location = new Point(66, 59);
             lblUnit.Name = "lblUnit";
             lblUnit.Size = new Size(44, 19);
-            lblUnit.TabIndex = 1;
+            lblUnit.TabIndex = 4;
             lblUnit.Text = "Unit :";
             // 
             // lblUnitName
@@ -152,7 +154,7 @@
             lblUnitName.Location = new Point(66, 17);
             lblUnitName.Name = "lblUnitName";
             lblUnitName.Size = new Size(86, 19);
-            lblUnitName.TabIndex = 0;
+            lblUnitName.TabIndex = 1;
             lblUnitName.Text = "Unit Name :";
             // 
             // pnlGrid
@@ -163,7 +165,7 @@
             pnlGrid.Location = new Point(12, 151);
             pnlGrid.Name = "pnlGrid";
             pnlGrid.Size = new Size(546, 210);
-            pnlGrid.TabIndex = 1;
+            pnlGrid.TabIndex = 9;
             // 
             // dgvUnits
             // 

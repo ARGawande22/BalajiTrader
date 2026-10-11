@@ -212,7 +212,7 @@ namespace BalajiTrader.Client.UI.Masters
                 //Setting up Column width
                 column["SrNo"].Width = 50;
                 column["CategoryName"].Width = 150;
-                column["BrandName"].Width = dgvBrands.Rows.Count < 7 ? 243 : 227;
+                column["BrandName"].Width = dgvBrands.Rows.Count < 7 ? 243 : 226;
 
                 //Setting up Header Text
                 column["SrNo"].HeaderText = "Sr No";

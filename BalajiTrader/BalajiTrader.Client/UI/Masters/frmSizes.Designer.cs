@@ -81,7 +81,7 @@
             btnCancel.Location = new Point(320, 122);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 30);
-            btnCancel.TabIndex = 77;
+            btnCancel.TabIndex = 11;
             btnCancel.Text = "Clear";
             btnCancel.TextAlign = ContentAlignment.MiddleRight;
             btnCancel.UseVisualStyleBackColor = false;
@@ -95,7 +95,7 @@
             cmbUnits.Location = new Point(168, 50);
             cmbUnits.Name = "cmbUnits";
             cmbUnits.Size = new Size(186, 27);
-            cmbUnits.TabIndex = 78;
+            cmbUnits.TabIndex = 7;
             // 
             // label2
             // 
@@ -104,7 +104,7 @@
             label2.Location = new Point(118, 53);
             label2.Name = "label2";
             label2.Size = new Size(15, 18);
-            label2.TabIndex = 77;
+            label2.TabIndex = 6;
             label2.Text = "*";
             // 
             // lblUnits
@@ -114,7 +114,7 @@
             lblUnits.Location = new Point(60, 53);
             lblUnits.Name = "lblUnits";
             lblUnits.Size = new Size(51, 19);
-            lblUnits.TabIndex = 76;
+            lblUnits.TabIndex = 5;
             lblUnits.Text = "Units :";
             // 
             // cmbCategory
@@ -125,7 +125,7 @@
             cmbCategory.Location = new Point(168, 12);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(204, 27);
-            cmbCategory.TabIndex = 75;
+            cmbCategory.TabIndex = 4;
             // 
             // btnSave
             // 
@@ -137,7 +137,7 @@
             btnSave.Location = new Point(177, 122);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(137, 32);
-            btnSave.TabIndex = 74;
+            btnSave.TabIndex = 10;
             btnSave.Text = "Save && Update";
             btnSave.TextAlign = ContentAlignment.MiddleRight;
             btnSave.UseVisualStyleBackColor = false;
@@ -150,7 +150,7 @@
             label1.Location = new Point(142, 16);
             label1.Name = "label1";
             label1.Size = new Size(15, 18);
-            label1.TabIndex = 74;
+            label1.TabIndex = 3;
             label1.Text = "*";
             // 
             // txtSizename
@@ -160,7 +160,7 @@
             txtSizename.Location = new Point(167, 86);
             txtSizename.Name = "txtSizename";
             txtSizename.Size = new Size(258, 30);
-            txtSizename.TabIndex = 73;
+            txtSizename.TabIndex = 9;
             txtSizename.Text = "";
             // 
             // lblCategory
@@ -170,7 +170,7 @@
             lblCategory.Location = new Point(60, 15);
             lblCategory.Name = "lblCategory";
             lblCategory.Size = new Size(75, 19);
-            lblCategory.TabIndex = 73;
+            lblCategory.TabIndex = 2;
             lblCategory.Text = "Category :";
             // 
             // lblSizeName
@@ -180,7 +180,7 @@
             lblSizeName.Location = new Point(60, 91);
             lblSizeName.Name = "lblSizeName";
             lblSizeName.Size = new Size(84, 19);
-            lblSizeName.TabIndex = 70;
+            lblSizeName.TabIndex = 8;
             lblSizeName.Text = "Size Name :";
             // 
             // pnlGrid
@@ -191,7 +191,7 @@
             pnlGrid.Location = new Point(12, 192);
             pnlGrid.Name = "pnlGrid";
             pnlGrid.Size = new Size(546, 175);
-            pnlGrid.TabIndex = 1;
+            pnlGrid.TabIndex = 12;
             // 
             // dgvSizes
             // 
@@ -259,7 +259,7 @@
             Name = "frmSizes";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Add Brands";
+            Text = "Add Sizes";
             Load += frmSizes_Load;
             pnlHeaders.ResumeLayout(false);
             pnlHeaders.PerformLayout();

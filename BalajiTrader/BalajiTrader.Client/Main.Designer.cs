@@ -38,6 +38,7 @@
             lblShopDetails = new Label();
             lblTaxes = new Label();
             pnlSalesReport = new Panel();
+            lblPricings = new Label();
             lblStocks = new Label();
             lblProducts = new Label();
             lblQuatation = new Label();
@@ -102,9 +103,9 @@
             pnlTools.Controls.Add(lblUsers);
             pnlTools.Controls.Add(lblShopDetails);
             pnlTools.Controls.Add(lblTaxes);
-            pnlTools.Location = new Point(3, 301);
+            pnlTools.Location = new Point(3, 328);
             pnlTools.Name = "pnlTools";
-            pnlTools.Size = new Size(342, 171);
+            pnlTools.Size = new Size(342, 142);
             pnlTools.TabIndex = 20;
             // 
             // lblSettings
@@ -152,6 +153,7 @@
             lblShopDetails.Size = new Size(88, 17);
             lblShopDetails.TabIndex = 22;
             lblShopDetails.Text = "Shop Details";
+            lblShopDetails.Click += lblShopDetails_Click;
             // 
             // lblTaxes
             // 
@@ -167,6 +169,7 @@
             // 
             // pnlSalesReport
             // 
+            pnlSalesReport.Controls.Add(lblPricings);
             pnlSalesReport.Controls.Add(lblStocks);
             pnlSalesReport.Controls.Add(lblProducts);
             pnlSalesReport.Controls.Add(lblQuatation);
@@ -176,8 +179,21 @@
             pnlSalesReport.Controls.Add(lblCustomer);
             pnlSalesReport.Location = new Point(3, 123);
             pnlSalesReport.Name = "pnlSalesReport";
-            pnlSalesReport.Size = new Size(342, 172);
+            pnlSalesReport.Size = new Size(342, 199);
             pnlSalesReport.TabIndex = 13;
+            // 
+            // lblPricings
+            // 
+            lblPricings.AutoSize = true;
+            lblPricings.Cursor = Cursors.Hand;
+            lblPricings.Font = new Font("Microsoft Sans Serif", 10F);
+            lblPricings.ForeColor = Color.Navy;
+            lblPricings.Location = new Point(67, 135);
+            lblPricings.Name = "lblPricings";
+            lblPricings.Size = new Size(105, 17);
+            lblPricings.TabIndex = 20;
+            lblPricings.Text = "Pricings Details";
+            lblPricings.Click += lblPricings_Click;
             // 
             // lblStocks
             // 
@@ -185,7 +201,7 @@
             lblStocks.Cursor = Cursors.Hand;
             lblStocks.Font = new Font("Microsoft Sans Serif", 10F);
             lblStocks.ForeColor = Color.Navy;
-            lblStocks.Location = new Point(67, 135);
+            lblStocks.Location = new Point(67, 160);
             lblStocks.Name = "lblStocks";
             lblStocks.Size = new Size(50, 17);
             lblStocks.TabIndex = 19;
@@ -371,7 +387,7 @@
             tsCatagory.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsCatagory.ForeColor = Color.SteelBlue;
             tsCatagory.Name = "tsCatagory";
-            tsCatagory.Size = new Size(180, 22);
+            tsCatagory.Size = new Size(154, 22);
             tsCatagory.Text = "Add Categories";
             tsCatagory.Click += tsCategory_Click;
             // 
@@ -380,7 +396,7 @@
             tsBrands.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsBrands.ForeColor = Color.SteelBlue;
             tsBrands.Name = "tsBrands";
-            tsBrands.Size = new Size(180, 22);
+            tsBrands.Size = new Size(154, 22);
             tsBrands.Text = "Add Brands";
             tsBrands.Click += tsBrands_Click;
             // 
@@ -389,7 +405,7 @@
             tsUnits.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsUnits.ForeColor = Color.SteelBlue;
             tsUnits.Name = "tsUnits";
-            tsUnits.Size = new Size(180, 22);
+            tsUnits.Size = new Size(154, 22);
             tsUnits.Text = "Add Units";
             tsUnits.Click += tsUnits_Click;
             // 
@@ -398,7 +414,7 @@
             tsSizes.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tsSizes.ForeColor = Color.SteelBlue;
             tsSizes.Name = "tsSizes";
-            tsSizes.Size = new Size(180, 22);
+            tsSizes.Size = new Size(154, 22);
             tsSizes.Text = "Add Sizes";
             tsSizes.Click += tsSizes_Click;
             // 
@@ -406,7 +422,7 @@
             // 
             tsProducts.ForeColor = Color.SteelBlue;
             tsProducts.Name = "tsProducts";
-            tsProducts.Size = new Size(180, 22);
+            tsProducts.Size = new Size(154, 22);
             tsProducts.Text = "Add Products";
             tsProducts.Click += tsProducts_Click;
             // 
@@ -498,5 +514,6 @@
         private ToolStripMenuItem tsUnits;
         private ToolStripMenuItem tsSizes;
         private ToolStripMenuItem tsProducts;
+        private Label lblPricings;
     }
 }

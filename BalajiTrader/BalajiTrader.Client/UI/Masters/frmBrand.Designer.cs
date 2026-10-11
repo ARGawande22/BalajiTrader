@@ -77,7 +77,7 @@
             btnCancel.Location = new Point(332, 91);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 30);
-            btnCancel.TabIndex = 76;
+            btnCancel.TabIndex = 8;
             btnCancel.Text = "Clear";
             btnCancel.TextAlign = ContentAlignment.MiddleRight;
             btnCancel.UseVisualStyleBackColor = false;
@@ -91,7 +91,7 @@
             cmbCategory.Location = new Point(193, 10);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(214, 27);
-            cmbCategory.TabIndex = 72;
+            cmbCategory.TabIndex = 3;
             // 
             // btnSave
             // 
@@ -103,7 +103,7 @@
             btnSave.Location = new Point(189, 91);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(137, 32);
-            btnSave.TabIndex = 65;
+            btnSave.TabIndex = 7;
             btnSave.Text = "Save && Update";
             btnSave.TextAlign = ContentAlignment.MiddleRight;
             btnSave.UseVisualStyleBackColor = false;
@@ -114,8 +114,9 @@
             txtBrandName.Font = new Font("Calibri", 12F);
             txtBrandName.Location = new Point(193, 55);
             txtBrandName.Name = "txtBrandName";
+            txtBrandName.PlaceholderText = "Enter brand name";
             txtBrandName.Size = new Size(214, 27);
-            txtBrandName.TabIndex = 45;
+            txtBrandName.TabIndex = 6;
             // 
             // label2
             // 
@@ -124,7 +125,7 @@
             label2.Location = new Point(130, 18);
             label2.Name = "label2";
             label2.Size = new Size(15, 18);
-            label2.TabIndex = 43;
+            label2.TabIndex = 2;
             label2.Text = "*";
             // 
             // label7
@@ -134,7 +135,7 @@
             label7.Location = new Point(152, 55);
             label7.Name = "label7";
             label7.Size = new Size(15, 18);
-            label7.TabIndex = 42;
+            label7.TabIndex = 5;
             label7.Text = "*";
             // 
             // lblCategory
@@ -154,7 +155,7 @@
             lblBrandName.Location = new Point(50, 54);
             lblBrandName.Name = "lblBrandName";
             lblBrandName.Size = new Size(97, 19);
-            lblBrandName.TabIndex = 0;
+            lblBrandName.TabIndex = 4;
             lblBrandName.Text = "Brand Name :";
             // 
             // pnlGrid
@@ -165,7 +166,7 @@
             pnlGrid.Location = new Point(12, 151);
             pnlGrid.Name = "pnlGrid";
             pnlGrid.Size = new Size(546, 210);
-            pnlGrid.TabIndex = 1;
+            pnlGrid.TabIndex = 9;
             // 
             // dgvBrands
             // 
