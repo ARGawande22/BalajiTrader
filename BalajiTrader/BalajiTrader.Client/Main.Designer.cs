@@ -36,7 +36,7 @@
             picTools = new PictureBox();
             lblUsers = new Label();
             lblShopDetails = new Label();
-            lblTaxes = new Label();
+            lblGSTTaxes = new Label();
             pnlSalesReport = new Panel();
             lblPricings = new Label();
             lblStocks = new Label();
@@ -102,7 +102,7 @@
             pnlTools.Controls.Add(picTools);
             pnlTools.Controls.Add(lblUsers);
             pnlTools.Controls.Add(lblShopDetails);
-            pnlTools.Controls.Add(lblTaxes);
+            pnlTools.Controls.Add(lblGSTTaxes);
             pnlTools.Location = new Point(3, 328);
             pnlTools.Name = "pnlTools";
             pnlTools.Size = new Size(342, 142);
@@ -155,17 +155,18 @@
             lblShopDetails.Text = "Shop Details";
             lblShopDetails.Click += lblShopDetails_Click;
             // 
-            // lblTaxes
+            // lblGSTTaxes
             // 
-            lblTaxes.AutoSize = true;
-            lblTaxes.Cursor = Cursors.Hand;
-            lblTaxes.Font = new Font("Microsoft Sans Serif", 10F);
-            lblTaxes.ForeColor = Color.Navy;
-            lblTaxes.Location = new Point(67, 60);
-            lblTaxes.Name = "lblTaxes";
-            lblTaxes.Size = new Size(46, 17);
-            lblTaxes.TabIndex = 23;
-            lblTaxes.Text = "Taxes";
+            lblGSTTaxes.AutoSize = true;
+            lblGSTTaxes.Cursor = Cursors.Hand;
+            lblGSTTaxes.Font = new Font("Microsoft Sans Serif", 10F);
+            lblGSTTaxes.ForeColor = Color.Navy;
+            lblGSTTaxes.Location = new Point(67, 60);
+            lblGSTTaxes.Name = "lblGSTTaxes";
+            lblGSTTaxes.Size = new Size(79, 17);
+            lblGSTTaxes.TabIndex = 23;
+            lblGSTTaxes.Text = "GST/Taxes";
+            lblGSTTaxes.Click += lblGSTTaxes_Click;
             // 
             // pnlSalesReport
             // 
@@ -508,7 +509,7 @@
         private Label lblStocks;
         private Label lblUsers;
         private Label lblShopDetails;
-        private Label lblTaxes;
+        private Label lblGSTTaxes;
         private ToolStripMenuItem tsCatagory;
         private ToolStripMenuItem tsBrands;
         private ToolStripMenuItem tsUnits;

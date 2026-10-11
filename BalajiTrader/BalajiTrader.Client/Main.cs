@@ -81,6 +81,12 @@ namespace BalajiTrader.Client
             _frmShopDetails.ShowDialog();
         }
 
+        private void lblGSTTaxes_Click(object sender, EventArgs e)
+        {
+            frmGSTMaster _frmGSTMaster = new frmGSTMaster();
+            _frmGSTMaster.ShowDialog();
+        }
+
         #region Methods
         private void RefreshData()
         {
@@ -90,6 +96,7 @@ namespace BalajiTrader.Client
             CommonProcess.GetAllSizes();
         }
         #endregion
+
 
 
 

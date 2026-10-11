@@ -53,6 +53,8 @@ namespace BalajiTrader.Client.UI
         private void frmProductDetails_Load(object sender, EventArgs e)
         {
             isInitializing = true;
+            cmbBrand.Visible = false;
+            lblBrand.Visible = false;
             BindComboBox();
 
             refreshData();
@@ -90,6 +92,7 @@ namespace BalajiTrader.Client.UI
                 cmbBrand.DataSource = null;
                 cmbBrand.DropDownStyle = Fonts.DropDown;
                 cmbBrand.DropDownHeight = Fonts.DefaultDropdownsize;
+                cmbBrand.Visible= lblBrand.Visible = cmbCategory.SelectedIndex > 0;
                 if (CategoryId == 0) return;
 
                 cmbBrand.DataSource = CommonProcess.GetBrandsFromList(CategoryId);
