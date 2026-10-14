@@ -278,6 +278,7 @@
             lblCustomer.Size = new Size(75, 17);
             lblCustomer.TabIndex = 15;
             lblCustomer.Text = "Customers";
+            lblCustomer.Click += lblCustomer_Click;
             // 
             // pnlPurchaseReport
             // 
@@ -326,6 +327,7 @@
             lblSupplier.Size = new Size(67, 17);
             lblSupplier.TabIndex = 10;
             lblSupplier.Text = "Suppliers";
+            lblSupplier.Click += lblSupplier_Click;
             // 
             // lblPurchaseReport
             // 
@@ -458,6 +460,7 @@
             IsMdiContainer = true;
             MainMenuStrip = mainMenuStrip;
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Balaji Trader & Enterprices";

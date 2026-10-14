@@ -27,6 +27,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="UI\frmAddClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\Masters\frmSizes.cs">
       <SubType>Form</SubType>
     </Compile>

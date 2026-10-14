@@ -204,11 +204,11 @@
             // txtPANNo
             // 
             txtPANNo.CharacterCasing = CharacterCasing.Upper;
-            txtPANNo.Font = new Font("Calibri", 12F);
+            txtPANNo.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPANNo.Location = new Point(152, 385);
             txtPANNo.Name = "txtPANNo";
             txtPANNo.PlaceholderText = "Enter PAN no";
-            txtPANNo.Size = new Size(160, 27);
+            txtPANNo.Size = new Size(160, 26);
             txtPANNo.TabIndex = 23;
             // 
             // lblPan
@@ -224,11 +224,11 @@
             // 
             // txtGSTNo
             // 
-            txtGSTNo.Font = new Font("Calibri", 12F);
+            txtGSTNo.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtGSTNo.Location = new Point(152, 349);
             txtGSTNo.Name = "txtGSTNo";
             txtGSTNo.PlaceholderText = "Enter GST no";
-            txtGSTNo.Size = new Size(276, 27);
+            txtGSTNo.Size = new Size(276, 26);
             txtGSTNo.TabIndex = 21;
             // 
             // lblGSTNo
@@ -244,11 +244,11 @@
             // 
             // txtWebSite
             // 
-            txtWebSite.Font = new Font("Calibri", 12F);
+            txtWebSite.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtWebSite.Location = new Point(152, 310);
             txtWebSite.Name = "txtWebSite";
             txtWebSite.PlaceholderText = "Enter website URL";
-            txtWebSite.Size = new Size(344, 27);
+            txtWebSite.Size = new Size(344, 26);
             txtWebSite.TabIndex = 19;
             // 
             // lblWebsite
@@ -274,11 +274,11 @@
             // 
             // txtPinCode
             // 
-            txtPinCode.Font = new Font("Calibri", 12F);
+            txtPinCode.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPinCode.Location = new Point(152, 187);
             txtPinCode.Name = "txtPinCode";
             txtPinCode.PlaceholderText = "Enter pincode";
-            txtPinCode.Size = new Size(160, 27);
+            txtPinCode.Size = new Size(160, 26);
             txtPinCode.TabIndex = 12;
             // 
             // lblPincode
@@ -304,11 +304,11 @@
             // 
             // txtEmailId
             // 
-            txtEmailId.Font = new Font("Calibri", 12F);
+            txtEmailId.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtEmailId.Location = new Point(152, 270);
             txtEmailId.Name = "txtEmailId";
             txtEmailId.PlaceholderText = "Enter e-mail id";
-            txtEmailId.Size = new Size(344, 27);
+            txtEmailId.Size = new Size(344, 26);
             txtEmailId.TabIndex = 17;
             // 
             // lblEmail
@@ -324,11 +324,11 @@
             // 
             // txtMobileNo
             // 
-            txtMobileNo.Font = new Font("Calibri", 12F);
+            txtMobileNo.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtMobileNo.Location = new Point(152, 226);
             txtMobileNo.Name = "txtMobileNo";
             txtMobileNo.PlaceholderText = "Enter contact no";
-            txtMobileNo.Size = new Size(160, 27);
+            txtMobileNo.Size = new Size(160, 26);
             txtMobileNo.TabIndex = 15;
             // 
             // lblMobileNo
@@ -354,7 +354,7 @@
             // 
             // txtShopAddress
             // 
-            txtShopAddress.Font = new Font("Calibri", 12F);
+            txtShopAddress.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtShopAddress.Location = new Point(152, 108);
             txtShopAddress.Name = "txtShopAddress";
             txtShopAddress.Size = new Size(344, 67);

@@ -87,6 +87,17 @@ namespace BalajiTrader.Client
             _frmGSTMaster.ShowDialog();
         }
 
+        private void lblSupplier_Click(object sender, EventArgs e)
+        {
+            frmAddVendor _frmAddVendor = new frmAddVendor();
+            _frmAddVendor.ShowDialog();
+        }
+
+        private void lblCustomer_Click(object sender, EventArgs e)
+        {
+            frmAddClient _frmAddClient= new frmAddClient();
+            _frmAddClient.ShowDialog();
+        }
         #region Methods
         private void RefreshData()
         {
@@ -96,10 +107,5 @@ namespace BalajiTrader.Client
             CommonProcess.GetAllSizes();
         }
         #endregion
-
-
-
-
-        
     }
 }
