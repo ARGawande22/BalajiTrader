@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             pnlMain = new Panel();
             pnlGrid = new Panel();
             stsMessage = new UserControls.Status();
@@ -43,6 +43,12 @@
             label10 = new Label();
             txtMobileNo = new TextBox();
             lblMobileNo = new Label();
+            txtPANNo = new TextBox();
+            lblPan = new Label();
+            txtGSTNo = new TextBox();
+            lblGSTNo = new Label();
+            lblEmail = new Label();
+            txtEmail = new TextBox();
             lblContactName = new Label();
             txtContactName = new TextBox();
             label3 = new Label();
@@ -51,12 +57,6 @@
             btnSave = new Button();
             lblCustomerName = new Label();
             txtCustomerName = new TextBox();
-            txtPANNo = new TextBox();
-            lblPan = new Label();
-            txtGSTNo = new TextBox();
-            lblGSTNo = new Label();
-            txtEmail = new TextBox();
-            lblEmail = new Label();
             pnlMain.SuspendLayout();
             pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCustomerDettails).BeginInit();
@@ -100,19 +100,19 @@
             dgvCustomerDettails.AllowUserToAddRows = false;
             dgvCustomerDettails.AllowUserToResizeColumns = false;
             dgvCustomerDettails.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = Color.Azure;
-            dgvCustomerDettails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = Color.Azure;
+            dgvCustomerDettails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvCustomerDettails.BackgroundColor = Color.White;
             dgvCustomerDettails.BorderStyle = BorderStyle.None;
             dgvCustomerDettails.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = Color.SteelBlue;
-            dataGridViewCellStyle8.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvCustomerDettails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvCustomerDettails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvCustomerDettails.ColumnHeadersHeight = 35;
             dgvCustomerDettails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCustomerDettails.Columns.AddRange(new DataGridViewColumn[] { SrNo });
@@ -124,8 +124,8 @@
             dgvCustomerDettails.Name = "dgvCustomerDettails";
             dgvCustomerDettails.ReadOnly = true;
             dgvCustomerDettails.RowHeadersVisible = false;
-            dataGridViewCellStyle9.SelectionBackColor = Color.LightSkyBlue;
-            dgvCustomerDettails.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightSkyBlue;
+            dgvCustomerDettails.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvCustomerDettails.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvCustomerDettails.Size = new Size(831, 270);
             dgvCustomerDettails.TabIndex = 13;
@@ -225,98 +225,6 @@
             lblMobileNo.TabIndex = 10;
             lblMobileNo.Text = "Contact No :";
             // 
-            // lblContactName
-            // 
-            lblContactName.AutoSize = true;
-            lblContactName.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblContactName.ForeColor = SystemColors.ControlText;
-            lblContactName.Location = new Point(6, 68);
-            lblContactName.Name = "lblContactName";
-            lblContactName.Size = new Size(108, 18);
-            lblContactName.TabIndex = 5;
-            lblContactName.Text = "Contact Person :";
-            // 
-            // txtContactName
-            // 
-            txtContactName.Font = new Font("Calibri", 11.25F);
-            txtContactName.Location = new Point(154, 65);
-            txtContactName.Name = "txtContactName";
-            txtContactName.PlaceholderText = "Please enter Contact person name";
-            txtContactName.Size = new Size(276, 26);
-            txtContactName.TabIndex = 6;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.ForeColor = Color.Red;
-            label3.Location = new Point(131, 34);
-            label3.Name = "label3";
-            label3.Size = new Size(15, 18);
-            label3.TabIndex = 3;
-            label3.Text = "*";
-            // 
-            // pnlFooter
-            // 
-            pnlFooter.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnlFooter.Controls.Add(btnCancel);
-            pnlFooter.Controls.Add(btnSave);
-            pnlFooter.Location = new Point(460, 168);
-            pnlFooter.Name = "pnlFooter";
-            pnlFooter.Size = new Size(367, 41);
-            pnlFooter.TabIndex = 19;
-            // 
-            // btnCancel
-            // 
-            btnCancel.Anchor = AnchorStyles.Right;
-            btnCancel.BackColor = Color.WhiteSmoke;
-            btnCancel.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCancel.ForeColor = SystemColors.ActiveCaptionText;
-            btnCancel.Image = Properties.Resources.Exit;
-            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancel.Location = new Point(283, 5);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(81, 30);
-            btnCancel.TabIndex = 21;
-            btnCancel.Text = "Cancel";
-            btnCancel.TextAlign = ContentAlignment.MiddleRight;
-            btnCancel.UseVisualStyleBackColor = false;
-            // 
-            // btnSave
-            // 
-            btnSave.Anchor = AnchorStyles.Right;
-            btnSave.BackColor = Color.WhiteSmoke;
-            btnSave.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSave.ForeColor = SystemColors.ActiveCaptionText;
-            btnSave.Image = Properties.Resources.Save_Update;
-            btnSave.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSave.Location = new Point(140, 5);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(137, 32);
-            btnSave.TabIndex = 20;
-            btnSave.Text = "Save && Update";
-            btnSave.TextAlign = ContentAlignment.MiddleRight;
-            btnSave.UseVisualStyleBackColor = false;
-            // 
-            // lblCustomerName
-            // 
-            lblCustomerName.AutoSize = true;
-            lblCustomerName.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCustomerName.ForeColor = SystemColors.ControlText;
-            lblCustomerName.Location = new Point(6, 32);
-            lblCustomerName.Name = "lblCustomerName";
-            lblCustomerName.Size = new Size(115, 18);
-            lblCustomerName.TabIndex = 2;
-            lblCustomerName.Text = "Customer Name :";
-            // 
-            // txtCustomerName
-            // 
-            txtCustomerName.Font = new Font("Calibri", 11.25F);
-            txtCustomerName.Location = new Point(154, 29);
-            txtCustomerName.Name = "txtCustomerName";
-            txtCustomerName.PlaceholderText = "Please enter customer name";
-            txtCustomerName.Size = new Size(469, 26);
-            txtCustomerName.TabIndex = 4;
-            // 
             // txtPANNo
             // 
             txtPANNo.CharacterCasing = CharacterCasing.Upper;
@@ -358,15 +266,6 @@
             lblGSTNo.TabIndex = 13;
             lblGSTNo.Text = "GST No :";
             // 
-            // txtEmail
-            // 
-            txtEmail.Font = new Font("Calibri", 11.25F);
-            txtEmail.Location = new Point(154, 175);
-            txtEmail.Name = "txtEmail";
-            txtEmail.PlaceholderText = "Please enter email id";
-            txtEmail.Size = new Size(276, 26);
-            txtEmail.TabIndex = 18;
-            // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
@@ -377,6 +276,107 @@
             lblEmail.Size = new Size(64, 18);
             lblEmail.TabIndex = 17;
             lblEmail.Text = "Email Id :";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Font = new Font("Calibri", 11.25F);
+            txtEmail.Location = new Point(154, 175);
+            txtEmail.Name = "txtEmail";
+            txtEmail.PlaceholderText = "Please enter email id";
+            txtEmail.Size = new Size(276, 26);
+            txtEmail.TabIndex = 18;
+            // 
+            // lblContactName
+            // 
+            lblContactName.AutoSize = true;
+            lblContactName.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblContactName.ForeColor = SystemColors.ControlText;
+            lblContactName.Location = new Point(6, 68);
+            lblContactName.Name = "lblContactName";
+            lblContactName.Size = new Size(108, 18);
+            lblContactName.TabIndex = 5;
+            lblContactName.Text = "Contact Person :";
+            // 
+            // txtContactName
+            // 
+            txtContactName.Font = new Font("Calibri", 11.25F);
+            txtContactName.Location = new Point(154, 65);
+            txtContactName.Name = "txtContactName";
+            txtContactName.PlaceholderText = "Please enter Contact person name";
+            txtContactName.Size = new Size(276, 26);
+            txtContactName.TabIndex = 6;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.Red;
+            label3.Location = new Point(131, 34);
+            label3.Name = "label3";
+            label3.Size = new Size(15, 18);
+            label3.TabIndex = 3;
+            label3.Text = "*";
+            // 
+            // pnlFooter
+            // 
+            pnlFooter.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlFooter.Controls.Add(btnCancel);
+            pnlFooter.Controls.Add(btnSave);
+            pnlFooter.Location = new Point(460, 170);
+            pnlFooter.Name = "pnlFooter";
+            pnlFooter.Size = new Size(367, 41);
+            pnlFooter.TabIndex = 19;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Anchor = AnchorStyles.Right;
+            btnCancel.BackColor = Color.WhiteSmoke;
+            btnCancel.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCancel.ForeColor = SystemColors.ActiveCaptionText;
+            btnCancel.Image = Properties.Resources.Exit;
+            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancel.Location = new Point(206, 4);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(81, 30);
+            btnCancel.TabIndex = 21;
+            btnCancel.Text = "Cancel";
+            btnCancel.TextAlign = ContentAlignment.MiddleRight;
+            btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // btnSave
+            // 
+            btnSave.Anchor = AnchorStyles.Right;
+            btnSave.BackColor = Color.WhiteSmoke;
+            btnSave.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = SystemColors.ActiveCaptionText;
+            btnSave.Image = Properties.Resources.Save_Update;
+            btnSave.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSave.Location = new Point(63, 4);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(137, 32);
+            btnSave.TabIndex = 20;
+            btnSave.Text = "Save && Update";
+            btnSave.TextAlign = ContentAlignment.MiddleRight;
+            btnSave.UseVisualStyleBackColor = false;
+            // 
+            // lblCustomerName
+            // 
+            lblCustomerName.AutoSize = true;
+            lblCustomerName.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCustomerName.ForeColor = SystemColors.ControlText;
+            lblCustomerName.Location = new Point(6, 32);
+            lblCustomerName.Name = "lblCustomerName";
+            lblCustomerName.Size = new Size(115, 18);
+            lblCustomerName.TabIndex = 2;
+            lblCustomerName.Text = "Customer Name :";
+            // 
+            // txtCustomerName
+            // 
+            txtCustomerName.Font = new Font("Calibri", 11.25F);
+            txtCustomerName.Location = new Point(154, 29);
+            txtCustomerName.Name = "txtCustomerName";
+            txtCustomerName.PlaceholderText = "Please enter customer name";
+            txtCustomerName.Size = new Size(469, 26);
+            txtCustomerName.TabIndex = 4;
             // 
             // frmAddClient
             // 

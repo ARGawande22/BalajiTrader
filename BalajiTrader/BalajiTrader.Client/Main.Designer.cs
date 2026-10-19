@@ -315,6 +315,7 @@
             lblBills.Size = new Size(33, 17);
             lblBills.TabIndex = 11;
             lblBills.Text = "Bills";
+            lblBills.Click += lblBills_Click;
             // 
             // lblSupplier
             // 

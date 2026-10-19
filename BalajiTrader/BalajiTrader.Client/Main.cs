@@ -95,9 +95,16 @@ namespace BalajiTrader.Client
 
         private void lblCustomer_Click(object sender, EventArgs e)
         {
-            frmAddClient _frmAddClient= new frmAddClient();
+            frmAddClient _frmAddClient = new frmAddClient();
             _frmAddClient.ShowDialog();
         }
+
+        private void lblBills_Click(object sender, EventArgs e)
+        {
+            frmNewBill _frmNewBill = new frmNewBill();
+            _frmNewBill.ShowDialog();
+        }
+
         #region Methods
         private void RefreshData()
         {
@@ -107,5 +114,7 @@ namespace BalajiTrader.Client
             CommonProcess.GetAllSizes();
         }
         #endregion
+
+        
     }
 }

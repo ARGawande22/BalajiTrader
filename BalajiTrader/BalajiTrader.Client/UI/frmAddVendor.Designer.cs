@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             pnlMain = new Panel();
             pnlGrid = new Panel();
             stsMessage = new UserControls.Status();
@@ -101,19 +101,19 @@
             dgvVendorDettails.AllowUserToAddRows = false;
             dgvVendorDettails.AllowUserToResizeColumns = false;
             dgvVendorDettails.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = Color.Azure;
-            dgvVendorDettails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = Color.Azure;
+            dgvVendorDettails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvVendorDettails.BackgroundColor = Color.White;
             dgvVendorDettails.BorderStyle = BorderStyle.None;
             dgvVendorDettails.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.SteelBlue;
-            dataGridViewCellStyle5.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvVendorDettails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvVendorDettails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvVendorDettails.ColumnHeadersHeight = 35;
             dgvVendorDettails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvVendorDettails.Columns.AddRange(new DataGridViewColumn[] { SrNo });
@@ -125,8 +125,8 @@
             dgvVendorDettails.Name = "dgvVendorDettails";
             dgvVendorDettails.ReadOnly = true;
             dgvVendorDettails.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = Color.LightSkyBlue;
-            dgvVendorDettails.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightSkyBlue;
+            dgvVendorDettails.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvVendorDettails.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvVendorDettails.Size = new Size(831, 270);
             dgvVendorDettails.TabIndex = 13;
@@ -333,7 +333,7 @@
             pnlFooter.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlFooter.Controls.Add(btnCancel);
             pnlFooter.Controls.Add(btnSave);
-            pnlFooter.Location = new Point(460, 168);
+            pnlFooter.Location = new Point(460, 169);
             pnlFooter.Name = "pnlFooter";
             pnlFooter.Size = new Size(367, 41);
             pnlFooter.TabIndex = 20;
@@ -346,7 +346,7 @@
             btnCancel.ForeColor = SystemColors.ActiveCaptionText;
             btnCancel.Image = Properties.Resources.Exit;
             btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancel.Location = new Point(283, 5);
+            btnCancel.Location = new Point(224, 5);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(81, 30);
             btnCancel.TabIndex = 22;
@@ -362,7 +362,7 @@
             btnSave.ForeColor = SystemColors.ActiveCaptionText;
             btnSave.Image = Properties.Resources.Save_Update;
             btnSave.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSave.Location = new Point(140, 5);
+            btnSave.Location = new Point(81, 5);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(137, 32);
             btnSave.TabIndex = 21;
