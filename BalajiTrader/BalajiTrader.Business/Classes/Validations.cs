@@ -98,6 +98,39 @@ namespace BalajiTrader.Business.Classes
         }
 
         /// <summary>
+        /// Check entered Personal PANNo is valid or not
+        /// </summary>
+        /// <param name="PANNo"></param>
+        /// <returns></returns>
+        public static bool ValidatePersonalPANNo(string PANNo)
+        {
+            _regex = new Regex(Constant.PersonalPAN);
+            return _regex.IsMatch(PANNo);
+        }
+
+        /// <summary>
+        /// Check entered Other PANNo is valid or not
+        /// </summary>
+        /// <param name="PANNo"></param>
+        /// <returns></returns>
+        public static bool ValidateOtherPANNo(string PANNo)
+        {
+            _regex = new Regex(Constant.OtherPAN);
+            return _regex.IsMatch(PANNo);
+        }
+
+        /// <summary>
+        /// Check entered TANNo is valid or not
+        /// </summary>
+        /// <param name="TANNo"></param>
+        /// <returns></returns>
+        public static bool ValidateTANNo(string TANNo)
+        {
+            _regex = new Regex(Constant.TANNo);
+            return _regex.IsMatch(TANNo);
+        }
+
+        /// <summary>
         /// Get the value in UpperCase
         /// </summary>
         /// <param name="Value"></param>

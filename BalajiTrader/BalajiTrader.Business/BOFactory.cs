@@ -11,6 +11,7 @@ namespace BalajiTrader.Business
         #region singleton instance reference
         private static CommonBO _commonBO;
         private static ProductBO _productBO;
+        private static VendorBO _vendorBO;
         #endregion
 
         public static CommonBO CommonBO
@@ -21,6 +22,11 @@ namespace BalajiTrader.Business
         public static ProductBO ProductBO
         {
             get { return _productBO ?? (_productBO = new ProductBO()); }
+        }
+
+        public static VendorBO VendorBO
+        {
+            get { return _vendorBO ?? (_vendorBO = new VendorBO()); }
         }
     }
 }

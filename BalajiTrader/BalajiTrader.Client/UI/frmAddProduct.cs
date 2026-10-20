@@ -182,7 +182,7 @@ namespace BalajiTrader.Client.UI
             catch (Exception ex) { log.Error(String.Format("Error : {0}", ex.Message)); }
         }
 
-        public void GetProductObject()
+        private void GetProductObject()
         {
             //Get the User details
             _product.ProductId = _productId;

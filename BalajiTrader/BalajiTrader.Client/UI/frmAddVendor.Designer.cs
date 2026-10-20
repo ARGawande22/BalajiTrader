@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddVendor));
             pnlMain = new Panel();
             pnlGrid = new Panel();
             stsMessage = new UserControls.Status();
@@ -58,11 +60,13 @@
             btnSave = new Button();
             lblVendorName = new Label();
             txtVendorName = new TextBox();
+            validationerrors = new ErrorProvider(components);
             pnlMain.SuspendLayout();
             pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvVendorDettails).BeginInit();
             grpAddVendor.SuspendLayout();
             pnlFooter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)validationerrors).BeginInit();
             SuspendLayout();
             // 
             // pnlMain
@@ -185,6 +189,7 @@
             txtAddress.Size = new Size(286, 67);
             txtAddress.TabIndex = 13;
             txtAddress.Text = "";
+            txtAddress.Validated += Common_Validated;
             // 
             // lblAddress
             // 
@@ -215,6 +220,8 @@
             txtMobileNo.PlaceholderText = "Enter contact no";
             txtMobileNo.Size = new Size(235, 26);
             txtMobileNo.TabIndex = 10;
+            txtMobileNo.KeyPress += Common_KeyPress;
+            txtMobileNo.Validated += Common_Validated;
             // 
             // lblMobileNo
             // 
@@ -236,6 +243,7 @@
             txtPANNo.PlaceholderText = "Enter PAN no";
             txtPANNo.Size = new Size(236, 26);
             txtPANNo.TabIndex = 17;
+            txtPANNo.Validated += Common_Validated;
             // 
             // lblPan
             // 
@@ -256,6 +264,7 @@
             txtGSTNo.PlaceholderText = "Enter GST no";
             txtGSTNo.Size = new Size(236, 26);
             txtGSTNo.TabIndex = 15;
+            txtGSTNo.Validated += Common_Validated;
             // 
             // lblGSTNo
             // 
@@ -287,6 +296,7 @@
             txtEmail.PlaceholderText = "Please enter email id";
             txtEmail.Size = new Size(286, 26);
             txtEmail.TabIndex = 19;
+            txtEmail.Validated += Common_Validated;
             // 
             // label1
             // 
@@ -317,6 +327,7 @@
             txtContactName.PlaceholderText = "Please enter Contact person name";
             txtContactName.Size = new Size(286, 26);
             txtContactName.TabIndex = 7;
+            txtContactName.Validated += Common_Validated;
             // 
             // label3
             // 
@@ -353,6 +364,7 @@
             btnCancel.Text = "Cancel";
             btnCancel.TextAlign = ContentAlignment.MiddleRight;
             btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // btnSave
             // 
@@ -369,6 +381,7 @@
             btnSave.Text = "Save && Update";
             btnSave.TextAlign = ContentAlignment.MiddleRight;
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // lblVendorName
             // 
@@ -389,6 +402,13 @@
             txtVendorName.PlaceholderText = "Please enter vendor name";
             txtVendorName.Size = new Size(469, 26);
             txtVendorName.TabIndex = 4;
+            txtVendorName.Validated += Common_Validated;
+            // 
+            // validationerrors
+            // 
+            validationerrors.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            validationerrors.ContainerControl = this;
+            validationerrors.Icon = (Icon)resources.GetObject("validationerrors.Icon");
             // 
             // frmAddVendor
             // 
@@ -405,12 +425,14 @@
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Vendor Details";
+            Load += frmAddVendor_Load;
             pnlMain.ResumeLayout(false);
             pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvVendorDettails).EndInit();
             grpAddVendor.ResumeLayout(false);
             grpAddVendor.PerformLayout();
             pnlFooter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)validationerrors).EndInit();
             ResumeLayout(false);
         }
 
@@ -443,5 +465,6 @@
         private UserControls.Status stsMessage;
         private DataGridView dgvVendorDettails;
         private DataGridViewTextBoxColumn SrNo;
+        private ErrorProvider validationerrors;
     }
 }

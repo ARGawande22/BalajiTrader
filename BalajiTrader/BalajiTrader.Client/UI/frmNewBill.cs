@@ -41,11 +41,11 @@ namespace BalajiTrader.Client.UI
 
         public void Line()
         {
-            lblLine.AutoSize = false;
-            lblLine.Height = 2;
-            lblLine.BorderStyle = BorderStyle.Fixed3D;
-            lblLine.Width = 995;
-            lblLine.BackColor = Color.Black;
+            //lblLine.AutoSize = false;
+            //lblLine.Height = 2;
+            //lblLine.BorderStyle = BorderStyle.Fixed3D;
+            //lblLine.Width = 995;
+            //lblLine.BackColor = Color.Black;
         }
     }
 }

@@ -20,6 +20,9 @@ namespace BalajiTrader.Business.Classes
         public const string MobileNo = @"[0-9]{10}";
         public const string PinCode = @"[0-9]{6}";
         public const string GSTNo = @"\d{2}[A-Z]{5}\d{4}[A-Z]{1}\d[Z]{1}[A-Z\d]{1}";
+        public const string OtherPAN = @"[A-Z]{3}[C,H,F,A,T,B,L,J,G,P]{1}[A-Z]{1}[0-9]{4}[A-Z]{1}";
+        public const string PersonalPAN = @"[A-Z]{3}[P]{1}[A-Z]{1}[0-9]{4}[A-Z]{1}";
+        public const string TANNo = @"[A-Z]{4}[0-9]{5}[A-Z]{1}";
 
         public const string NameKey = "Name";
         public const string CodeKey = "Code";
@@ -27,7 +30,8 @@ namespace BalajiTrader.Business.Classes
         public const string AddressKey = "Address";
         public const string PinKey = "PinCode";
         public const string GSTKey = "GSTNo";
-       
+        public const string MobileKey = "Mobile";
+
         public const char PasswordMask = '*';
         public const char PasswordBullet = '•';
         public const char PasswordDash = '-';
@@ -46,6 +50,9 @@ namespace BalajiTrader.Business.Classes
         public const string ProductId = "ProductId";
         public const string ProductName = "ProductName";
         public const string ProductCode = "ProductCode";
+
+        public const string VendorNameKey = "VendorName";
+        public const string PANKey = "PAN";
 
     }
 }

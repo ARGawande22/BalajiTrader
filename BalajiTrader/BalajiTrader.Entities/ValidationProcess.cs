@@ -149,7 +149,7 @@ namespace BalajiTrader.Entities
         }
         #endregion
 
-        #region Validate Sizes
+        #region Validate Product
         public ValidationErrors ProductValidation
         {
             get
@@ -198,6 +198,75 @@ namespace BalajiTrader.Entities
             if (string.IsNullOrEmpty(_product.Unit))
             {
                 ValidationError error = new ValidationError(Constant.Unit, "Please Select the unit", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+            #endregion
+
+            return validationErrors;
+        }
+        #endregion
+
+        #region Validate Product
+        public ValidationErrors VendorValidation
+        {
+            get
+            {
+                ValidationErrors errors = ValidateVendor();
+                return errors;
+            }
+        }
+
+        public ValidationErrors ValidateVendor()
+        {
+            ValidationErrors validationErrors = new ValidationErrors();
+            Vendor _vendor = VendorProcess.AddVendor;
+
+            //Product Details
+            #region Vendor Details
+            if (string.IsNullOrEmpty(_vendor.VendorName))
+            {
+                ValidationError error = new ValidationError(Constant.VendorNameKey, "Please enter the vendor name", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (string.IsNullOrEmpty(_vendor.ContactName))
+            {
+                ValidationError error = new ValidationError(Constant.NameKey, "Please enter the contact name", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (string.IsNullOrEmpty(_vendor.ContactNo))
+            {
+                ValidationError error = new ValidationError(Constant.MobileKey, "Please enter the contact no", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+            else if(!Validations.ValidateMobileNo(_vendor.ContactNo))
+            {
+                ValidationError error = new ValidationError(Constant.MobileKey, "Please enter a valid 10 digit contact no", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (string.IsNullOrEmpty(_vendor.Address))
+            {
+                ValidationError error = new ValidationError(Constant.AddressKey, "Please enter the address", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if(!string.IsNullOrEmpty(_vendor.EmailId) && !Validations.ValidateEmail(_vendor.EmailId))
+            {
+                ValidationError error = new ValidationError(Constant.EmailKey, "Please enter a valid email", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (!string.IsNullOrEmpty(_vendor.GSTNo) && !Validations.ValidateGSTNo(_vendor.GSTNo))
+            {
+                ValidationError error = new ValidationError(Constant.GSTKey, "Please enter a valid GSTNo", ValidationErrorTypes.Warning);
+                validationErrors.Add(error);
+            }
+
+            if (!string.IsNullOrEmpty(_vendor.PANNo) && !Validations.ValidateOtherPANNo(_vendor.PANNo))
+            {
+                ValidationError error = new ValidationError(Constant.PANKey, "Please enter a valid PAN no", ValidationErrorTypes.Warning);
                 validationErrors.Add(error);
             }
             #endregion

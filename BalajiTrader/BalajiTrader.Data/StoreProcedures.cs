@@ -32,5 +32,11 @@ namespace BalajiTrader.Data
         internal static readonly string AddUpdateProduct = "save_UpdateProduct";
         internal static readonly string SelProduct = "sel_Product";
         internal static readonly string del_Product = "del_Product";
+
+        //Vendor
+        internal static readonly string AddUpdateVendor = "save_UpdateVendor";
+        internal static readonly string SelVendor = "sel_Vendor";
+        internal static readonly string del_Vendor = "del_Vendor";
+
     }
 }
