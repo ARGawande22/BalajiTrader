@@ -36,7 +36,7 @@
             pnlMain = new Panel();
             pnlGrid = new Panel();
             stsMessage = new UserControls.Status();
-            dgvVendorDettails = new DataGridView();
+            dgvVendorDetails = new DataGridView();
             SrNo = new DataGridViewTextBoxColumn();
             grpAddVendor = new GroupBox();
             label4 = new Label();
@@ -63,7 +63,7 @@
             validationerrors = new ErrorProvider(components);
             pnlMain.SuspendLayout();
             pnlGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvVendorDettails).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVendorDetails).BeginInit();
             grpAddVendor.SuspendLayout();
             pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)validationerrors).BeginInit();
@@ -83,7 +83,7 @@
             // 
             pnlGrid.BorderStyle = BorderStyle.FixedSingle;
             pnlGrid.Controls.Add(stsMessage);
-            pnlGrid.Controls.Add(dgvVendorDettails);
+            pnlGrid.Controls.Add(dgvVendorDetails);
             pnlGrid.Location = new Point(12, 235);
             pnlGrid.Name = "pnlGrid";
             pnlGrid.Size = new Size(833, 272);
@@ -100,16 +100,16 @@
             stsMessage.Size = new Size(305, 183);
             stsMessage.TabIndex = 24;
             // 
-            // dgvVendorDettails
+            // dgvVendorDetails
             // 
-            dgvVendorDettails.AllowUserToAddRows = false;
-            dgvVendorDettails.AllowUserToResizeColumns = false;
-            dgvVendorDettails.AllowUserToResizeRows = false;
+            dgvVendorDetails.AllowUserToAddRows = false;
+            dgvVendorDetails.AllowUserToResizeColumns = false;
+            dgvVendorDetails.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.Azure;
-            dgvVendorDettails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvVendorDettails.BackgroundColor = Color.White;
-            dgvVendorDettails.BorderStyle = BorderStyle.None;
-            dgvVendorDettails.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvVendorDetails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvVendorDetails.BackgroundColor = Color.White;
+            dgvVendorDetails.BorderStyle = BorderStyle.None;
+            dgvVendorDetails.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.SteelBlue;
             dataGridViewCellStyle2.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -117,23 +117,26 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvVendorDettails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvVendorDettails.ColumnHeadersHeight = 35;
-            dgvVendorDettails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvVendorDettails.Columns.AddRange(new DataGridViewColumn[] { SrNo });
-            dgvVendorDettails.Dock = DockStyle.Fill;
-            dgvVendorDettails.EditMode = DataGridViewEditMode.EditOnEnter;
-            dgvVendorDettails.EnableHeadersVisualStyles = false;
-            dgvVendorDettails.GridColor = Color.LightSteelBlue;
-            dgvVendorDettails.Location = new Point(0, 0);
-            dgvVendorDettails.Name = "dgvVendorDettails";
-            dgvVendorDettails.ReadOnly = true;
-            dgvVendorDettails.RowHeadersVisible = false;
+            dgvVendorDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvVendorDetails.ColumnHeadersHeight = 35;
+            dgvVendorDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvVendorDetails.Columns.AddRange(new DataGridViewColumn[] { SrNo });
+            dgvVendorDetails.Dock = DockStyle.Fill;
+            dgvVendorDetails.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgvVendorDetails.EnableHeadersVisualStyles = false;
+            dgvVendorDetails.GridColor = Color.LightSteelBlue;
+            dgvVendorDetails.Location = new Point(0, 0);
+            dgvVendorDetails.Name = "dgvVendorDetails";
+            dgvVendorDetails.ReadOnly = true;
+            dgvVendorDetails.RowHeadersVisible = false;
             dataGridViewCellStyle3.SelectionBackColor = Color.LightSkyBlue;
-            dgvVendorDettails.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            dgvVendorDettails.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvVendorDettails.Size = new Size(831, 270);
-            dgvVendorDettails.TabIndex = 13;
+            dgvVendorDetails.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dgvVendorDetails.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvVendorDetails.Size = new Size(831, 270);
+            dgvVendorDetails.TabIndex = 13;
+            dgvVendorDetails.CellClick += dgvVendorDetails_CellClick;
+            dgvVendorDetails.CellMouseEnter += dgvVendorDetails_CellMouseEnter;
+            dgvVendorDetails.DataError += dgvVendorDetails_DataError;
             // 
             // SrNo
             // 
@@ -428,7 +431,7 @@
             Load += frmAddVendor_Load;
             pnlMain.ResumeLayout(false);
             pnlGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvVendorDettails).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVendorDetails).EndInit();
             grpAddVendor.ResumeLayout(false);
             grpAddVendor.PerformLayout();
             pnlFooter.ResumeLayout(false);
@@ -463,7 +466,7 @@
         private Label lblAddress;
         private Panel pnlGrid;
         private UserControls.Status stsMessage;
-        private DataGridView dgvVendorDettails;
+        private DataGridView dgvVendorDetails;
         private DataGridViewTextBoxColumn SrNo;
         private ErrorProvider validationerrors;
     }

@@ -43,7 +43,7 @@
             lblProducts = new Label();
             lblQuatation = new Label();
             lblSalesReport = new Label();
-            lblIncoice = new Label();
+            lblInvoice = new Label();
             picSalesReport = new PictureBox();
             lblCustomer = new Label();
             pnlPurchaseReport = new Panel();
@@ -175,7 +175,7 @@
             pnlSalesReport.Controls.Add(lblProducts);
             pnlSalesReport.Controls.Add(lblQuatation);
             pnlSalesReport.Controls.Add(lblSalesReport);
-            pnlSalesReport.Controls.Add(lblIncoice);
+            pnlSalesReport.Controls.Add(lblInvoice);
             pnlSalesReport.Controls.Add(picSalesReport);
             pnlSalesReport.Controls.Add(lblCustomer);
             pnlSalesReport.Location = new Point(3, 123);
@@ -244,17 +244,18 @@
             lblSalesReport.TabIndex = 14;
             lblSalesReport.Text = "SALES REPORTS :";
             // 
-            // lblIncoice
+            // lblInvoice
             // 
-            lblIncoice.AutoSize = true;
-            lblIncoice.Cursor = Cursors.Hand;
-            lblIncoice.Font = new Font("Microsoft Sans Serif", 10F);
-            lblIncoice.ForeColor = Color.Navy;
-            lblIncoice.Location = new Point(67, 60);
-            lblIncoice.Name = "lblIncoice";
-            lblIncoice.Size = new Size(59, 17);
-            lblIncoice.TabIndex = 16;
-            lblIncoice.Text = "Invoices";
+            lblInvoice.AutoSize = true;
+            lblInvoice.Cursor = Cursors.Hand;
+            lblInvoice.Font = new Font("Microsoft Sans Serif", 10F);
+            lblInvoice.ForeColor = Color.Navy;
+            lblInvoice.Location = new Point(67, 60);
+            lblInvoice.Name = "lblInvoice";
+            lblInvoice.Size = new Size(59, 17);
+            lblInvoice.TabIndex = 16;
+            lblInvoice.Text = "Invoices";
+            lblInvoice.Click += lblInvoice_Click;
             // 
             // picSalesReport
             // 
@@ -367,6 +368,7 @@
             btnNewInvoice.Text = "NEW INVOICE";
             btnNewInvoice.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnNewInvoice.UseVisualStyleBackColor = false;
+            btnNewInvoice.Click += btnNewInvoice_Click;
             // 
             // mainMenuStrip
             // 
@@ -507,7 +509,7 @@
         private Label lblBills;
         private Label lblPO;
         private Label lblQuatation;
-        private Label lblIncoice;
+        private Label lblInvoice;
         private Label lblCustomer;
         private Label lblProducts;
         private Label lblStocks;

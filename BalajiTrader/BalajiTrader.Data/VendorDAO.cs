@@ -4,6 +4,7 @@ using log4net;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,5 +39,42 @@ namespace BalajiTrader.Data
                 return false;
             }
         }
+
+        public DataSet GetVendors(int vendorId)
+        {
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[] {
+                    new SqlParameter("@vendorId",vendorId)
+                };
+
+                return ExecuteDataset(StoreProcedures.SelVendor, parameters);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message.ToString());
+                return null;
+            }
+        }
+
+        public bool EnableDisableVendor(int vendorId, string Status)
+        {
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[] {
+                    new SqlParameter("@vendorId",vendorId),
+                    new SqlParameter("@status",Status)
+                };
+
+                ExecuteNonQuery(StoreProcedures.del_Vendor, parameters);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message.ToString());
+                return false;
+            }
+        }
+
     }
 }

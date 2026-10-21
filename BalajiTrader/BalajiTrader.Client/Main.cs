@@ -104,6 +104,17 @@ namespace BalajiTrader.Client
             frmNewBill _frmNewBill = new frmNewBill();
             _frmNewBill.ShowDialog();
         }
+        
+        private void btnNewInvoice_Click(object sender, EventArgs e)
+        {
+            frmNewInvoice _frmNewInvoice = new frmNewInvoice();
+            _frmNewInvoice.ShowDialog();
+        }
+
+        private void lblInvoice_Click(object sender, EventArgs e)
+        {
+
+        }
 
         #region Methods
         private void RefreshData()
@@ -112,8 +123,12 @@ namespace BalajiTrader.Client
             CommonProcess.GetAllBrands();
             CommonProcess.GetAllUnits();
             CommonProcess.GetAllSizes();
+            VendorProcess.GetAllVendors();
         }
         #endregion
+
+
+
 
         
     }
