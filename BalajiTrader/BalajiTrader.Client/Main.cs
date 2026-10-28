@@ -101,8 +101,8 @@ namespace BalajiTrader.Client
 
         private void lblBills_Click(object sender, EventArgs e)
         {
-            frmNewBill _frmNewBill = new frmNewBill();
-            _frmNewBill.ShowDialog();
+            frmBillReport _frmBillReport = new frmBillReport();
+            _frmBillReport.ShowDialog();
         }
         
         private void btnNewInvoice_Click(object sender, EventArgs e)
@@ -113,7 +113,8 @@ namespace BalajiTrader.Client
 
         private void lblInvoice_Click(object sender, EventArgs e)
         {
-
+            frmInvoiceReport _frmInvoiceReport = new frmInvoiceReport();
+            _frmInvoiceReport.ShowDialog();
         }
 
         #region Methods
